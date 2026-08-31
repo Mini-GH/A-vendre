@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Objets à vendre</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: #faf9fc;
+      color: #242124;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .filters button {
+      border: 1px solid #e5dff0;
+      background: white;
+      color: #5f4b76;
+      padding: 10px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .filters button:hover {
+      background: #f0ebf6;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .item {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(70, 50, 90, 0.06);
+    }
+
+    .item img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .content {
+      padding: 14px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: 600;
+      color: #6f5688;
+      margin-bottom: 6px;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #77717d;
+      line-height: 1.4;
+    }
+
+    .sold-section {
+      margin-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .sold-section h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 500;
+      color: #6f6673;
+    }
+
+    .sold {
+      opacity: 0.55;
+    }
+
+    .sold img {
+      filter: grayscale(35%);
+    }
+
+    .sold-label {
+      display: inline-block;
+      background: #eee8f5;
+      color: #6f5688;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Objets à vendre</h1>
+
+    <div class="filters">
+      <button onclick="filterItems('all')">Tout</button>
+      <button onclick="filterItems('salon')">Salon</button>
+      <button onclick="filterItems('cuisine')">Cuisine</button>
+      <button onclick="filterItems('chambre')">Chambre</button>
+      <button onclick="filterItems('salle-de-bain')">Salle de bain</button>
+      <button onclick="filterItems('divers')">Divers</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="grid" id="available-items"></div>
+
+    <section class="sold-section">
+      <h2>Vendus</h2>
+      <div class="grid" id="sold-items"></div>
+    </section>
+
+  </main>
+
+  <script>
+    const items = [
+      {
+        image: "https://via.placeholder.com/500",
+        price: "40 CHF",
+        description: "Table basse — bon état",
+        category: "salon",
+        sold: false
+      },
+      {
+        image: "https://via.placeholder.com/500",
+        price: "15 CHF",
+        description: "Cafetière — fonctionne parfaitement",
+        category: "cuisine",
+        sold: false
+      },
+      {
+        image: "https://via.placeholder.com/500",
+        price: "25 CHF",
+        description: "Lampe de chevet",
+        category: "chambre",
+        sold: false
+      },
+      {
+        image: "https://via.placeholder.com/500",
+        price: "10 CHF",
+        description: "Petit panier de rangement",
+        category: "salle-de-bain",
+        sold: true
+      }
+    ];
+
+    let currentFilter = "all";
+
+    function displayItems() {
+      const availableContainer = document.getElementById("available-items");
+      const soldContainer = document.getElementById("sold-items");
+
+      availableContainer.innerHTML = "";
+      soldContainer.innerHTML = "";
+
+      items.forEach(item => {
+        if (currentFilter !== "all" && item.category !== currentFilter) {
+          return;
+        }
+
+        const card = document.createElement("div");
+        card.className = "item" + (item.sold ? " sold" : "");
+
+        card.innerHTML = `
+          <img src="${item.image}" alt="">
+          <div class="content">
+            ${item.sold ? '<div class="sold-label">VENDU</div>' : ''}
+            <div class="price">${item.price}</div>
+            <div class="description">${item.description}</div>
+          </div>
+        `;
+
+        if (item.sold) {
+          soldContainer.appendChild(card);
+        } else {
+          availableContainer.appendChild(card);
+        }
+      });
+    }
+
+    function filterItems(category) {
+      currentFilter = category;
+      displayItems();
+    }
+
+    displayItems();
+  </script>
+
+</body>
+</html>
