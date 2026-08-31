@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Objets à vendre</title>
+  <title>Vide Maison Bussigny</title>
 
   <style>
     body {
       margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      background: #f1f1f4;
-      color: #242124;
+      font-family: "Arial Rounded MT Bold", "Arial Rounded MT", Arial, Helvetica, sans-serif;
+      background: #CDCDCD;
+      color: #000000;
     }
 
     header {
@@ -19,9 +19,9 @@
     }
 
     h1 {
-      margin-bottom: 20px;
-      font-weight: 600;
-      letter-spacing: -0.5px;
+      margin-bottom: 24px;
+      font-weight: 700;
+      letter-spacing: 0;
     }
 
     .filters {
@@ -33,17 +33,19 @@
     }
 
     .filters button {
-      border: 1px solid #cfc3e6;
+      border: 1px solid #8E50FF;
       background: white;
-      color: #5b3f8c;
+      color: #8E50FF;
       padding: 10px 16px;
       border-radius: 20px;
       cursor: pointer;
       font-size: 14px;
+      font-family: inherit;
     }
 
     .filters button:hover {
-      background: #e7def5;
+      background: #8E50FF;
+      color: white;
     }
 
     .container {
@@ -59,9 +61,9 @@
 
     .item {
       background: white;
-      border-radius: 14px;
+      border-radius: 22px;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(70, 50, 90, 0.06);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
     .item img {
@@ -72,20 +74,21 @@
     }
 
     .content {
-      padding: 14px;
+      padding: 16px;
     }
 
     .price {
-      font-size: 20px;
-      font-weight: 600;
-      color: #5a35a2;
-      margin-bottom: 6px;
+      font-size: 21px;
+      font-weight: 700;
+      color: #8E50FF;
+      margin-bottom: 7px;
     }
 
     .description {
       font-size: 14px;
-      color: #77717d;
+      color: #555555;
       line-height: 1.4;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     .sold-section {
@@ -96,8 +99,8 @@
     .sold-section h2 {
       text-align: center;
       margin-bottom: 25px;
-      font-weight: 500;
-      color: #5b4f66;
+      font-weight: 700;
+      color: #000000;
     }
 
     .sold {
@@ -110,11 +113,11 @@
 
     .sold-label {
       display: inline-block;
-      background: #e4d9f7;
-      color: #5a35a2;
+      background: #8E50FF;
+      color: white;
       font-size: 12px;
-      font-weight: 600;
-      padding: 4px 8px;
+      font-weight: 700;
+      padding: 4px 9px;
       border-radius: 10px;
       margin-bottom: 8px;
     }
@@ -124,7 +127,7 @@
 <body>
 
   <header>
-    <h1>Objets à vendre</h1>
+    <h1>VIDE MAISON BUSSIGNY</h1>
 
     <div class="filters">
       <button onclick="filterItems('all')">Tout</button>
@@ -149,209 +152,209 @@
 
   <script>
     const items = [
-  {
-    image: "images/assiettes argent.JPG",
-    price: "5 CHF",
-    description: "Assiettes argentées",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/balance.jpg",
-    price: "5 CHF",
-    description: "Balance",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/boite cables.jpg",
-    price: "5 CHF",
-    description: "Boîte pour organiser et cacher les câbles",
-    category: "divers",
-    sold: false
-  },
-  {
-    image: "images/boite fromage.jpg",
-    price: "2 CHF",
-    description: "Boîte à fromage",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/bougies.jpg",
-    price: "30 CHF",
-    description: "Lot de 5 bougies effet très réaliste",
-    category: "salon", "chambre"
-    sold: false
-  },
-  {
-    image: "images/bouilloire.jpg",
-    price: "10 CHF",
-    description: "Bouilloire",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/bulk.jpg",
-    price: "30",
-    description: "Shakers Bulk neufs x2",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/calendrier.jpg",
-    price: "5 CHF",
-    description: "Calendrier",
-    category: "chambre", "divers"
-    sold: false
-  },
-  {
-    image: "images/cheese.jpg",
-    price: "15 CHF",
-    description: "Boite céramique et set à fromage de 4 pics",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/coquetiers.jpg",
-    price: "10 CHF",
-    description: "Lot de 6 coquetiers tout neufs",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/dyson.jpg",
-    price: "15 CHF",
-    description: "Accessoire Dyson - adapteur angles et surface éloignées",
-    category: "salon", "divers"
-    sold: false
-  },
-  {
-    image: "images/enjoy.jpg",
-    price: "5 CHF",
-    description: "Affiche en verre de décoration avec corde",
-    category: "salon", "chambre", "divers"
-    sold: false
-  },
-  {
-    image: "images/eponges.jpg",
-    price: "2 CHF",
-    description: "Éponges en silicone de cuisine",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/galcons.jpg",
-    price: "3 CHF",
-    description: "Bac à glaçons ananas réutilisable",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/housse valise.jpg",
-    price: "15 CHF",
-    description: "Housses de valise",
-    category: "divers",
-    sold: false
-  },
-  {
-    image: "images/jus.jpg",
-    price: "15 CHF",
-    description: "Appareil Tefal à faire des jus",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/livres.jpg",
-    price: "5 CHF",
-    description: "Carnets, jolis blocs-notes",
-    category: "divers",
-    sold: false
-  },
-  {
-    image: "images/machine pates.jpg",
-    price: "30 CHF",
-    description: "Machine à pâtes",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/mixeur manuel.jpg",
-    price: "5 CHF",
-    description: "Mixeur manuel très simple",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/mixeur.jpg",
-    price: "40 CHF",
-    description: "Mixeur moulinex multi-usage",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/papiers cuisine.jpg",
-    price: "15 CHF",
-    description: "Distributeur et coupe-film/papiers de cuisine",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/passoire.jpg",
-    price: "5 CHF",
-    description: "Mini passoire neuve",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/pieds lit.jpg",
-    price: "5 CHF",
-    description: "Pieds de lit 12cm",
-    category: "chambre", "divers"
-    sold: false
-  },
-  {
-    image: "images/poisson plat.jpg",
-    price: "5 CHF",
-    description: "Plat en forme de poisson",
-    category: "cuisine",
-    sold: false
-    },
-  {
-    image: "images/saucisson.jpg",
-    price: "15 CHF",
-    description: "Machine à saucisson",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/shots.jpg",
-    price: "5 CHF",
-    description: "Verres à shots humoristiques",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/verres carres.jpg",
-    price: "20 CHF",
-    description: "Lot de 4 verres designs, cocktails, neufs",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/verres chope.jpg",
-    price: "10 CHF",
-    description: "Chopes XL",
-    category: "cuisine",
-    sold: false
-  },
-  {
-    image: "images/verres pied.jpg",
-    price: "5 CHF",
-    description: "Verres à pied x5",
-    category: "cuisine",
-    sold: false
-  }
+      {
+        image: "images/assiettes argent.JPG",
+        price: "5 CHF",
+        description: "Assiettes argentées",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/balance.jpg",
+        price: "5 CHF",
+        description: "Balance",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/boite cables.jpg",
+        price: "5 CHF",
+        description: "Boîte pour organiser et cacher les câbles",
+        category: ["divers"],
+        sold: false
+      },
+      {
+        image: "images/boite fromage.jpg",
+        price: "2 CHF",
+        description: "Boîte à fromage",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/bougies.jpg",
+        price: "30 CHF",
+        description: "Lot de 5 bougies effet très réaliste",
+        category: ["salon", "chambre"],
+        sold: false
+      },
+      {
+        image: "images/bouilloire.jpg",
+        price: "10 CHF",
+        description: "Bouilloire",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/bulk.jpg",
+        price: "30 CHF",
+        description: "Shakers Bulk neufs x2",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/calendrier.jpg",
+        price: "5 CHF",
+        description: "Calendrier",
+        category: ["chambre", "divers"],
+        sold: false
+      },
+      {
+        image: "images/cheese.jpg",
+        price: "15 CHF",
+        description: "Boîte céramique et set à fromage de 4 pics",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/coquetiers.jpg",
+        price: "10 CHF",
+        description: "Lot de 6 coquetiers tout neufs",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/dyson.jpg",
+        price: "15 CHF",
+        description: "Accessoire Dyson - adaptateur angles et surfaces éloignées",
+        category: ["salon", "divers"],
+        sold: false
+      },
+      {
+        image: "images/enjoy.jpg",
+        price: "5 CHF",
+        description: "Affiche en verre de décoration avec corde",
+        category: ["salon", "chambre", "divers"],
+        sold: false
+      },
+      {
+        image: "images/eponges.jpg",
+        price: "2 CHF",
+        description: "Éponges en silicone de cuisine",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/galcons.jpg",
+        price: "3 CHF",
+        description: "Bac à glaçons ananas réutilisable",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/housse valise.jpg",
+        price: "15 CHF",
+        description: "Housses de valise",
+        category: ["divers"],
+        sold: false
+      },
+      {
+        image: "images/jus.jpg",
+        price: "15 CHF",
+        description: "Appareil Tefal à faire des jus",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/livres.jpg",
+        price: "5 CHF",
+        description: "Carnets, jolis blocs-notes",
+        category: ["divers"],
+        sold: false
+      },
+      {
+        image: "images/machine pates.jpg",
+        price: "30 CHF",
+        description: "Machine à pâtes",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/mixeur manuel.jpg",
+        price: "5 CHF",
+        description: "Mixeur manuel très simple",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/mixeur.jpg",
+        price: "40 CHF",
+        description: "Mixeur Moulinex multi-usage",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/papiers cuisine.jpg",
+        price: "15 CHF",
+        description: "Distributeur et coupe-film/papiers de cuisine",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/passoire.jpg",
+        price: "5 CHF",
+        description: "Mini passoire neuve",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/pieds lit.jpg",
+        price: "5 CHF",
+        description: "Pieds de lit 12 cm",
+        category: ["chambre", "divers"],
+        sold: false
+      },
+      {
+        image: "images/poisson plat.jpg",
+        price: "5 CHF",
+        description: "Plat en forme de poisson",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/saucisson.jpg",
+        price: "15 CHF",
+        description: "Machine à saucisson",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/shots.jpg",
+        price: "5 CHF",
+        description: "Verres à shots humoristiques",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/verres carres.jpg",
+        price: "20 CHF",
+        description: "Lot de 4 verres design, cocktails, neufs",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/verres chope.jpg",
+        price: "10 CHF",
+        description: "Chopes XL",
+        category: ["cuisine"],
+        sold: false
+      },
+      {
+        image: "images/verres pied.jpg",
+        price: "5 CHF",
+        description: "Verres à pied x5",
+        category: ["cuisine"],
+        sold: false
+      }
     ];
 
     let currentFilter = "all";
@@ -364,7 +367,10 @@
       soldContainer.innerHTML = "";
 
       items.forEach(item => {
-        if (currentFilter !== "all" && item.category !== currentFilter) {
+        if (
+          currentFilter !== "all" &&
+          !item.category.includes(currentFilter)
+        ) {
           return;
         }
 
@@ -372,7 +378,7 @@
         card.className = "item" + (item.sold ? " sold" : "");
 
         card.innerHTML = `
-          <img src="${item.image}" alt="">
+          <img src="${item.image}" alt="${item.description}">
           <div class="content">
             ${item.sold ? '<div class="sold-label">VENDU</div>' : ''}
             <div class="price">${item.price}</div>
