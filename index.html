@@ -115,24 +115,19 @@
 
     .modal-content h3 {
       margin-top: 0;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
 
     .modal-content p {
       font-family: Arial, Helvetica, sans-serif;
       color: #555;
       line-height: 1.5;
-      margin-bottom: 10px;
+      margin: 0 0 8px;
     }
 
-    .modal-item-name {
-      font-weight: 700;
-      color: #000;
-    }
-
-    .sms-button {
+    .whatsapp-button {
       display: inline-block;
-      margin-top: 12px;
+      margin-top: 14px;
       background: #8E50FF;
       color: white;
       text-decoration: none;
@@ -221,16 +216,15 @@
     <div class="modal-content">
       <h3>Vous êtes intéressé(e) ?</h3>
 
-      <p>
-      Pour acheter :
-      </p>
+      <p>Pour acheter :</p>
 
       <a
-        class="sms-button"
-        id="sms-button"
+        class="whatsapp-button"
+        id="whatsapp-button"
         href="#"
+        target="_blank"
       >
-        Envoyer un SMS
+        Envoyer un WhatsApp
       </a>
 
       <br>
@@ -242,7 +236,7 @@
   </div>
 
   <script>
-    const phoneNumber = "+41 78 220 72 74";
+    const phoneNumber = "41782207274";
 
     const items = [
       {
@@ -527,7 +521,6 @@
     }
 
     function openModal(item) {
-
       const message =
         "Bonjour, je suis intéressé(e) par : " +
         item.description +
@@ -535,12 +528,12 @@
         item.price +
         ")";
 
-      const smsButton = document.getElementById("sms-button");
+      const whatsappButton = document.getElementById("whatsapp-button");
 
-      smsButton.href =
-        "sms:" +
+      whatsappButton.href =
+        "https://wa.me/" +
         phoneNumber +
-        "?body=" +
+        "?text=" +
         encodeURIComponent(message);
 
       document.getElementById("contact-modal").style.display = "flex";
