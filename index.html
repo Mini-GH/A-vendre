@@ -495,43 +495,39 @@
     let currentFilter = "all";
 
     function displayItems() {
-      const availableContainer = document.getElementById("available-items");
-      const soldContainer = document.getElementById("sold-items");
+  const availableContainer = document.getElementById("available-items");
 
-      availableContainer.innerHTML = "";
-      soldContainer.innerHTML = "";
+  availableContainer.innerHTML = "";
 
-      items.forEach(item => {
-        if (
-          currentFilter !== "all" &&
-          !item.category.includes(currentFilter)
-        ) {
-          return;
-        }
-
-        const card = document.createElement("div");
-        card.className = "item" + (item.sold ? " sold" : "");
-
-        if (!item.sold) {
-          card.onclick = () => openModal(item);
-        }
-
-        card.innerHTML = `
-          <img src="${item.image}" alt="${item.description}">
-          <div class="content">
-            ${item.sold ? '<div class="sold-label">VENDU</div>' : ''}
-            <div class="price">${item.price}</div>
-            <div class="description">${item.description}</div>
-          </div>
-        `;
-
-        if (item.sold) {
-          soldContainer.appendChild(card);
-        } else {
-          availableContainer.appendChild(card);
-        }
-      });
+  items.forEach(item => {
+    if (
+      currentFilter !== "all" &&
+      !item.category.includes(currentFilter)
+    ) {
+      return;
     }
+
+    // Si l'article est vendu, on ne l'affiche simplement pas
+    if (item.sold) {
+      return;
+    }
+
+    const card = document.createElement("div");
+    card.className = "item";
+
+    card.onclick = () => openModal(item);
+
+    card.innerHTML = `
+      <img src="${item.image}" alt="${item.description}">
+      <div class="content">
+        <div class="price">${item.price}</div>
+        <div class="description">${item.description}</div>
+      </div>
+    `;
+
+    availableContainer.appendChild(card);
+  });
+}
 
     function filterItems(category) {
       currentFilter = category;
