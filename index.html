@@ -51,6 +51,7 @@
     .container {
       width: min(1100px, 92%);
       margin: auto;
+      padding-bottom: 50px;
     }
 
     .grid {
@@ -213,9 +214,7 @@
   </header>
 
   <main class="container">
-
     <div class="grid" id="available-items"></div>
-
   </main>
 
   <div class="modal" id="contact-modal">
@@ -235,7 +234,7 @@
       <a
         class="sms-button"
         id="sms-button"
-        href="sms:+417XXXXXXXX"
+        href="#"
       >
         Envoyer un SMS
       </a>
@@ -252,13 +251,13 @@
     const phoneNumber = "+41782207274";
 
     const items = [
-       {
+      {
         image: "affiches verre.jpg",
         price: "5 CHF",
         description: "Affiches en verre de décoration avec corde - neuves",
         category: ["salon", "chambre", "divers"],
         sold: false
-      }, 
+      },
       {
         image: "assiettes argent.jpg",
         price: "5 CHF",
@@ -314,7 +313,7 @@
         description: "Cadre photo noir design",
         category: ["divers", "chambre", "salon"],
         sold: false
-      },      
+      },
       {
         image: "calendrier.jpg",
         price: "5 CHF",
@@ -342,7 +341,7 @@
         description: "Etagère suspendue corde porte plante ou déco en bois",
         category: ["divers"],
         sold: false
-      },      
+      },
       {
         image: "dyson.jpg",
         price: "15 CHF",
@@ -377,7 +376,7 @@
         description: "Mini potager de 4 pots en verre",
         category: ["divers"],
         sold: false
-      },      
+      },
       {
         image: "jus.jpg",
         price: "15 CHF",
@@ -419,7 +418,7 @@
         description: "Dessous de verre imitation palettes x8 - neufs",
         category: ["cuisine"],
         sold: false
-      },      
+      },
       {
         image: "papiers cuisine.jpg",
         price: "15 CHF",
@@ -454,7 +453,7 @@
         description: "Pots en verre et corde",
         category: ["divers"],
         sold: false
-      },      
+      },
       {
         image: "saucisson.jpg",
         price: "15 CHF",
@@ -495,39 +494,38 @@
     let currentFilter = "all";
 
     function displayItems() {
-  const availableContainer = document.getElementById("available-items");
+      const availableContainer = document.getElementById("available-items");
 
-  availableContainer.innerHTML = "";
+      availableContainer.innerHTML = "";
 
-  items.forEach(item => {
-    if (
-      currentFilter !== "all" &&
-      !item.category.includes(currentFilter)
-    ) {
-      return;
+      items.forEach(item => {
+        if (item.sold) {
+          return;
+        }
+
+        if (
+          currentFilter !== "all" &&
+          !item.category.includes(currentFilter)
+        ) {
+          return;
+        }
+
+        const card = document.createElement("div");
+        card.className = "item";
+
+        card.onclick = () => openModal(item);
+
+        card.innerHTML = `
+          <img src="${item.image}" alt="${item.description}">
+          <div class="content">
+            <div class="price">${item.price}</div>
+            <div class="description">${item.description}</div>
+          </div>
+        `;
+
+        availableContainer.appendChild(card);
+      });
     }
-
-    // Si l'article est vendu, on ne l'affiche simplement pas
-    if (item.sold) {
-      return;
-    }
-
-    const card = document.createElement("div");
-    card.className = "item";
-
-    card.onclick = () => openModal(item);
-
-    card.innerHTML = `
-      <img src="${item.image}" alt="${item.description}">
-      <div class="content">
-        <div class="price">${item.price}</div>
-        <div class="description">${item.description}</div>
-      </div>
-    `;
-
-    availableContainer.appendChild(card);
-  });
-}
 
     function filterItems(category) {
       currentFilter = category;
@@ -545,7 +543,9 @@
         item.price +
         ")";
 
-      document.getElementById("sms-button").href =
+      const smsButton = document.getElementById("sms-button");
+
+      smsButton.href =
         "sms:" +
         phoneNumber +
         "?body=" +
@@ -558,11 +558,13 @@
       document.getElementById("contact-modal").style.display = "none";
     }
 
-    document.getElementById("contact-modal").addEventListener("click", function(event) {
-      if (event.target === this) {
-        closeModal();
-      }
-    });
+    document
+      .getElementById("contact-modal")
+      .addEventListener("click", function(event) {
+        if (event.target === this) {
+          closeModal();
+        }
+      });
 
     displayItems();
   </script>
