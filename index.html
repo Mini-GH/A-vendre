@@ -55,42 +55,16 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
     }
-
-    @media (max-width: 600px) {
-  .container {
-    width: 94%;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .content {
-    padding: 10px;
-  }
-
-  .price {
-    font-size: 17px;
-  }
-
-  .description {
-    font-size: 12px;
-  }
-
-  .item {
-    border-radius: 16px;
-  }
-}
 
     .item {
       background: white;
       border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
     }
 
     .item img {
@@ -132,6 +106,7 @@
 
     .sold {
       opacity: 0.55;
+      cursor: default;
     }
 
     .sold img {
@@ -147,6 +122,109 @@
       padding: 4px 9px;
       border-radius: 10px;
       margin-bottom: 8px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: white;
+      width: min(360px, 90%);
+      border-radius: 22px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .modal-content p {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .modal-item-name {
+      font-weight: 700;
+      color: #000;
+    }
+
+    .sms-button {
+      display: inline-block;
+      margin-top: 12px;
+      background: #8E50FF;
+      color: white;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+
+    .close-button {
+      margin-top: 14px;
+      border: none;
+      background: none;
+      color: #777;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 28px 12px 14px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .container {
+        width: 94%;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .content {
+        padding: 10px;
+      }
+
+      .price {
+        font-size: 17px;
+      }
+
+      .description {
+        font-size: 12px;
+      }
+
+      .item {
+        border-radius: 16px;
+      }
+
+      .filters {
+        gap: 7px;
+        margin-bottom: 22px;
+      }
+
+      .filters button {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
     }
   </style>
 </head>
@@ -177,19 +255,51 @@
 
   </main>
 
+  <div class="modal" id="contact-modal">
+    <div class="modal-content">
+      <h3>Vous êtes intéressé(e) ?</h3>
+
+      <p>
+        Pour acheter :
+        <br>
+        <span class="modal-item-name" id="modal-item-name"></span>
+      </p>
+
+      <p>
+        Envoyez-nous simplement un message.
+      </p>
+
+      <a
+        class="sms-button"
+        id="sms-button"
+        href="sms:+417XXXXXXXX"
+      >
+        Envoyer un SMS
+      </a>
+
+      <br>
+
+      <button class="close-button" onclick="closeModal()">
+        Fermer
+      </button>
+    </div>
+  </div>
+
   <script>
+    const phoneNumber = "+417XXXXXXXX";
+
     const items = [
       {
         image: "assiettes argent.jpg",
         price: "5 CHF",
-        description: "Assiettes argentées",
+        description: "Assiettes argentées - neuves",
         category: ["cuisine"],
         sold: false
       },
       {
         image: "balance.jpg",
         price: "5 CHF",
-        description: "Balance",
+        description: "Balance - neuve",
         category: ["cuisine"],
         sold: false
       },
@@ -210,7 +320,7 @@
       {
         image: "bougies.jpg",
         price: "30 CHF",
-        description: "Lot de 5 bougies effet très réaliste",
+        description: "Lot de 5 bougies effet très réalistes - neuves",
         category: ["salon", "chambre"],
         sold: false
       },
@@ -224,7 +334,7 @@
       {
         image: "bulk.jpg",
         price: "30 CHF",
-        description: "Shakers Bulk neufs x2",
+        description: "Shakers Bulk x2 - neufs",
         category: ["cuisine"],
         sold: false
       },
@@ -238,70 +348,70 @@
       {
         image: "cheese.jpg",
         price: "15 CHF",
-        description: "Boîte céramique et set à fromage de 4 pics",
+        description: "Boîte céramique et set à fromage de 4 pics - neuf",
         category: ["cuisine"],
         sold: false
       },
       {
         image: "coquetiers.jpg",
         price: "10 CHF",
-        description: "Lot de 6 coquetiers tout neufs",
+        description: "Lot de 6 coquetiers - neuf",
         category: ["cuisine"],
         sold: false
       },
       {
         image: "dyson.jpg",
         price: "15 CHF",
-        description: "Accessoire Dyson - adaptateur angles et surfaces éloignées",
+        description: "Accessoire Dyson, adaptateur angles et surfaces éloignées - neuf",
         category: ["salon", "divers"],
         sold: false
       },
       {
         image: "enjoy.jpg",
         price: "5 CHF",
-        description: "Affiche en verre de décoration avec corde",
+        description: "Affiche en verre de décoration avec corde - neuves",
         category: ["salon", "chambre", "divers"],
         sold: false
       },
       {
         image: "eponges.jpg",
         price: "2 CHF",
-        description: "Éponges en silicone de cuisine",
+        description: "Éponges en silicone de cuisine - neuves",
         category: ["cuisine"],
         sold: false
       },
       {
         image: "galcons.jpg",
         price: "3 CHF",
-        description: "Bac à glaçons ananas réutilisable",
+        description: "Bac à glaçons ananas réutilisables - neuf",
         category: ["cuisine"],
         sold: false
       },
       {
         image: "housse valise.jpg",
         price: "15 CHF",
-        description: "Housses de valise x5",
+        description: "Housses de valise x5 - neuves",
         category: ["divers"],
         sold: false
       },
       {
         image: "jus.jpg",
         price: "15 CHF",
-        description: "Appareil Tefal à faire des jus",
+        description: "Appareil Tefal à faire des jus - neuf",
         category: ["cuisine"],
         sold: false
       },
       {
         image: "livres.jpg",
         price: "5 CHF",
-        description: "Carnets, jolis blocs-notes",
+        description: "Carnets, jolis blocs-notes - neufs",
         category: ["divers"],
         sold: false
       },
       {
         image: "machine pates.jpg",
         price: "30 CHF",
-        description: "Machine à pâtes",
+        description: "Machine à pâtes - neuve",
         category: ["cuisine"],
         sold: false
       },
@@ -322,14 +432,14 @@
       {
         image: "papiers cuisine.jpg",
         price: "15 CHF",
-        description: "Distributeur et coupe-film/papiers de cuisine",
+        description: "Distributeur et coupe-film/papiers de cuisine - neuf",
         category: ["cuisine"],
         sold: false
       },
       {
         image: "passoire.jpg",
         price: "5 CHF",
-        description: "Mini passoire neuve",
+        description: "Mini passoire - neuve",
         category: ["cuisine"],
         sold: false
       },
@@ -350,28 +460,28 @@
       {
         image: "saucisson.jpg",
         price: "15 CHF",
-        description: "Machine à saucisson",
+        description: "Machine à saucisson - neuve",
         category: ["cuisine"],
         sold: false
       },
       {
         image: "shots.jpg",
         price: "5 CHF",
-        description: "Verres à shots humoristiques",
+        description: "Verres à shots humoristiques - neufs",
         category: ["cuisine"],
         sold: false
       },
       {
         image: "verres carres.jpg",
         price: "20 CHF",
-        description: "Lot de 4 verres design, cocktails, neufs",
+        description: "Lot de 4 verres design, cocktails - neufs",
         category: ["cuisine"],
         sold: false
       },
       {
         image: "verres chope.jpg",
-        price: "3 CHF",
-        description: "Chopes XL x2",
+        price: "5 CHF",
+        description: "Chopes XL",
         category: ["cuisine"],
         sold: false
       },
@@ -405,10 +515,8 @@
         card.className = "item" + (item.sold ? " sold" : "");
 
         if (!item.sold) {
-        card.onclick = () => {
-        alert("Pour acheter cet article, envoyez un message au 07 XX XX XX XX");
-        };
-      }
+          card.onclick = () => openModal(item);
+        }
 
         card.innerHTML = `
           <img src="${item.image}" alt="${item.description}">
@@ -431,6 +539,36 @@
       currentFilter = category;
       displayItems();
     }
+
+    function openModal(item) {
+      document.getElementById("modal-item-name").textContent =
+        item.description + " — " + item.price;
+
+      const message =
+        "Bonjour, je suis intéressé(e) par : " +
+        item.description +
+        " (" +
+        item.price +
+        ")";
+
+      document.getElementById("sms-button").href =
+        "sms:" +
+        phoneNumber +
+        "?body=" +
+        encodeURIComponent(message);
+
+      document.getElementById("contact-modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("contact-modal").style.display = "none";
+    }
+
+    document.getElementById("contact-modal").addEventListener("click", function(event) {
+      if (event.target === this) {
+        closeModal();
+      }
+    });
 
     displayItems();
   </script>
