@@ -404,6 +404,12 @@
         const card = document.createElement("div");
         card.className = "item" + (item.sold ? " sold" : "");
 
+        if (!item.sold) {
+        card.onclick = () => {
+        alert("Pour acheter cet article, envoyez un message au 07 XX XX XX XX");
+        };
+      }
+
         card.innerHTML = `
           <img src="${item.image}" alt="${item.description}">
           <div class="content">
