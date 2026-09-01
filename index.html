@@ -55,9 +55,36 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
+
+    @media (max-width: 600px) {
+  .container {
+    width: 94%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .price {
+    font-size: 17px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .item {
+    border-radius: 16px;
+  }
+}
 
     .item {
       background: white;
