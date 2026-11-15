@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Vide Maison Bussigny</title>
 
   <style>
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "Arial Rounded MT Bold", "Arial Rounded MT", Arial, Helvetica, sans-serif;
+
+      font-family:
+        "Arial Rounded MT Bold",
+        "Arial Rounded MT",
+        Arial,
+        Helvetica,
+        sans-serif;
 
       background: linear-gradient(
         to bottom,
@@ -22,223 +31,571 @@
       color: #000000;
     }
 
+
+    /* HEADER */
+
     header {
       text-align: center;
       padding: 50px 20px 20px;
     }
 
+
     h1 {
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+
       font-weight: 700;
       letter-spacing: 0;
+
       font-size: 42px;
+
       color: #FFFFFF;
     }
 
-    .filters {
+
+    /* =========================
+       FILTRES PRINCIPAUX
+       ========================= */
+
+    .main-filters {
       display: flex;
+
       justify-content: center;
+      align-items: center;
+
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 30px;
+
+      gap: 12px;
+
+      margin-bottom: 14px;
     }
 
-    .filters button {
-      border: 1px solid #8E50FF;
+
+    .main-filters button {
+      border: 2px solid #8E50FF;
+
       background: white;
+
       color: #8E50FF;
-      padding: 10px 16px;
-      border-radius: 20px;
+
+      padding: 11px 22px;
+
+      border-radius: 25px;
+
       cursor: pointer;
-      font-size: 14px;
+
+      font-size: 15px;
+      font-weight: 700;
+
       font-family: inherit;
+
+      transition: 0.2s;
     }
 
-    .filters button:hover {
+
+    .main-filters button:hover {
       background: #8E50FF;
       color: white;
     }
 
+
+    .main-filters button.active {
+      background: #8E50FF;
+      color: white;
+    }
+
+
+    /* =========================
+       SOUS-FILTRES
+       ========================= */
+
+    .sub-filters {
+      display: none;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin: 0 auto 32px;
+    }
+
+
+    .sub-filters.visible {
+      display: flex;
+    }
+
+
+    .sub-filters button {
+      border: 1px solid rgba(255, 255, 255, 0.9);
+
+      background: rgba(255, 255, 255, 0.90);
+
+      color: #555555;
+
+      padding: 8px 14px;
+
+      border-radius: 20px;
+
+      cursor: pointer;
+
+      font-size: 13px;
+
+      font-family: inherit;
+
+      transition: 0.2s;
+    }
+
+
+    .sub-filters button:hover {
+      background: #8E50FF;
+      border-color: #8E50FF;
+      color: white;
+    }
+
+
+    .sub-filters button.active {
+      background: #8E50FF;
+      border-color: #8E50FF;
+      color: white;
+    }
+
+
+    /* =========================
+       CONTENU
+       ========================= */
+
     .container {
       width: min(1100px, 92%);
+
       margin: auto;
+
       padding-bottom: 50px;
     }
 
+
     .grid {
       display: grid;
+
       grid-template-columns: repeat(4, 1fr);
+
       gap: 24px;
     }
 
+
     .item {
       background: white;
+
       border-radius: 22px;
+
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+      box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.05);
+
       cursor: pointer;
+
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
     }
+
+
+    .item:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.12);
+    }
+
 
     .item img {
       width: 100%;
+
       aspect-ratio: 1 / 1;
+
       object-fit: cover;
+
       display: block;
     }
+
 
     .content {
       padding: 16px;
     }
 
+
     .price {
       font-size: 21px;
+
       font-weight: 700;
+
       color: #8E50FF;
+
       margin-bottom: 7px;
     }
 
+
     .description {
       font-size: 14px;
+
       color: #555555;
+
       line-height: 1.4;
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
     }
+
+
+    /* =========================
+       FENÊTRE WHATSAPP
+       ========================= */
 
     .modal {
       display: none;
+
       position: fixed;
+
       inset: 0;
-      background: rgba(0, 0, 0, 0.35);
+
+      background:
+        rgba(0, 0, 0, 0.35);
+
       justify-content: center;
       align-items: center;
+
       z-index: 1000;
+
       padding: 20px;
     }
 
+
     .modal-content {
       background: white;
+
       width: min(360px, 90%);
+
       border-radius: 22px;
+
       padding: 24px;
+
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+
       color: #000000;
     }
+
 
     .modal-content h3 {
       margin-top: 0;
+
       margin-bottom: 14px;
+
       color: #000000;
     }
 
+
     .modal-content p {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       color: #555555;
+
       line-height: 1.5;
+
       margin: 0 0 8px;
     }
 
+
     .whatsapp-button {
       display: inline-block;
+
       margin-top: 14px;
+
       background: #8E50FF;
+
       color: white;
+
       text-decoration: none;
+
       padding: 12px 18px;
+
       border-radius: 20px;
+
       font-weight: 700;
     }
 
+
     .close-button {
       margin-top: 14px;
+
       border: none;
+
       background: none;
+
       color: #777777;
+
       cursor: pointer;
+
       font-size: 14px;
+
       font-family: inherit;
     }
 
+
+    /* =========================
+       MOBILE
+       ========================= */
+
     @media (max-width: 600px) {
+
       header {
         padding: 28px 12px 14px;
       }
 
+
       h1 {
         font-size: 30px;
+
         color: #FFFFFF;
       }
+
+
+      .main-filters {
+        gap: 7px;
+
+        margin-bottom: 11px;
+      }
+
+
+      .main-filters button {
+        padding: 9px 14px;
+
+        font-size: 13px;
+      }
+
+
+      .sub-filters {
+        gap: 6px;
+
+        margin-bottom: 22px;
+      }
+
+
+      .sub-filters button {
+        padding: 7px 10px;
+
+        font-size: 11px;
+      }
+
 
       .container {
         width: 94%;
       }
 
+
       .grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(2, 1fr);
+
         gap: 10px;
       }
+
 
       .content {
         padding: 10px;
       }
 
+
       .price {
         font-size: 17px;
       }
+
 
       .description {
         font-size: 12px;
       }
 
+
       .item {
         border-radius: 16px;
       }
 
-      .filters {
-        gap: 7px;
-        margin-bottom: 22px;
-      }
-
-      .filters button {
-        padding: 8px 12px;
-        font-size: 12px;
-      }
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
   <header>
-    <h1>VIDE MAISON - BUSSIGNY</h1>
 
-<div class="filters">
-  <button onclick="filterItems('all')">Tout</button>
+    <h1>
+      VIDE MAISON - BUSSIGNY
+    </h1>
 
-  <button onclick="filterItems('tee-shirts')">Tee-shirts</button>
-  <button onclick="filterItems('pulls-hoodies')">Pulls, hoodies</button>
-  <button onclick="filterItems('manteaux-vestes')">Manteaux, vestes</button>
-  <button onclick="filterItems('accessoires')">Accessoires</button>
-  <button onclick="filterItems('chaussures')">Chaussures</button>
 
-  <button onclick="filterItems('salon')">Salon</button>
-  <button onclick="filterItems('cuisine')">Cuisine</button>
-  <button onclick="filterItems('chambre')">Chambre</button>
-  <button onclick="filterItems('salle-de-bain')">Salle de bain</button>
-  <button onclick="filterItems('divers')">Divers</button>
-</div>
+    <!-- FILTRES PRINCIPAUX -->
+
+    <div class="main-filters">
+
+      <button
+        id="main-all"
+        class="active"
+        onclick="filterSection('all')"
+      >
+        Tout
+      </button>
+
+
+      <button
+        id="main-maison"
+        onclick="filterSection('maison')"
+      >
+        Maison
+      </button>
+
+
+      <button
+        id="main-vetements"
+        onclick="filterSection('vetements')"
+      >
+        Vêtements
+      </button>
+
+    </div>
+
+
+    <!-- SOUS-FILTRES MAISON -->
+
+    <div
+      class="sub-filters"
+      id="maison-filters"
+    >
+
+      <button
+        onclick="filterCategory('cuisine', this)"
+      >
+        Cuisine
+      </button>
+
+
+      <button
+        onclick="filterCategory('salon', this)"
+      >
+        Déco / salon
+      </button>
+
+
+      <button
+        onclick="filterCategory('chambre', this)"
+      >
+        Chambre
+      </button>
+
+
+      <button
+        onclick="filterCategory('salle-de-bain', this)"
+      >
+        Salle de bain
+      </button>
+
+
+      <button
+        onclick="filterCategory('divers', this)"
+      >
+        Divers
+      </button>
+
+    </div>
+
+
+    <!-- SOUS-FILTRES VÊTEMENTS -->
+
+    <div
+      class="sub-filters"
+      id="vetements-filters"
+    >
+
+      <button
+        onclick="filterCategory('tee-shirts', this)"
+      >
+        Tee-shirts
+      </button>
+
+
+      <button
+        onclick="filterCategory('pulls-hoodies', this)"
+      >
+        Pulls / hoodies
+      </button>
+
+
+      <button
+        onclick="filterCategory('manteaux-vestes', this)"
+      >
+        Manteaux / vestes
+      </button>
+
+
+      <button
+        onclick="filterCategory('accessoires', this)"
+      >
+        Accessoires
+      </button>
+
+
+      <button
+        onclick="filterCategory('chaussures', this)"
+      >
+        Chaussures
+      </button>
+
+    </div>
+
   </header>
 
+
+
   <main class="container">
-    <div class="grid" id="available-items"></div>
+
+    <div
+      class="grid"
+      id="available-items"
+    ></div>
+
   </main>
 
-  <div class="modal" id="contact-modal">
+
+
+  <!-- FENÊTRE CONTACT -->
+
+  <div
+    class="modal"
+    id="contact-modal"
+  >
+
     <div class="modal-content">
 
-      <h3>Vous êtes intéressé(e) ?</h3>
+      <h3>
+        Vous êtes intéressé(e) ?
+      </h3>
 
-      <p>Pour acheter :</p>
+
+      <p>
+        Pour acheter :
+      </p>
+
 
       <a
         class="whatsapp-button"
@@ -249,319 +606,848 @@
         Envoyer un WhatsApp
       </a>
 
+
       <br>
 
-      <button class="close-button" onclick="closeModal()">
+
+      <button
+        class="close-button"
+        onclick="closeModal()"
+      >
         Fermer
       </button>
 
     </div>
+
   </div>
+
+
 
   <script>
 
-    const phoneNumber = "41782207274";
+
+    /* =========================
+       NUMÉRO WHATSAPP
+       ========================= */
+
+    const phoneNumber =
+      "41782207274";
+
+
+
+    /* =========================
+       ARTICLES
+       ========================= */
 
     const items = [
 
-      {
-        image: "images/affiches verre.jpg",
-        price: "5 CHF",
-        description: "Affiches en verre de décoration avec corde - neuves",
-        category: ["salon", "chambre", "divers"],
-        sold: false
-      },
 
       {
-        image: "images/assiettes argent.jpg",
-        price: "5 CHF",
-        description: "Assiettes argentées - neuves",
-        category: ["cuisine"],
-        sold: false
+        image:
+          "images/affiches verre.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Affiches en verre de décoration avec corde - neuves",
+
+        section:
+          "maison",
+
+        category:
+          ["salon", "chambre", "divers"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/balance.jpg",
-        price: "5 CHF",
-        description: "Balance - neuve",
-        category: ["cuisine"],
-        sold: false
-      },
 
       {
-        image: "images/boite cables.jpg",
-        price: "5 CHF",
-        description: "Boîte pour organiser et cacher les câbles",
-        category: ["divers"],
-        sold: false
+        image:
+          "images/assiettes argent.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Assiettes argentées - neuves",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/boite fromage.jpg",
-        price: "2 CHF",
-        description: "Boîte à fromage",
-        category: ["cuisine"],
-        sold: false
-      },
 
       {
-        image: "images/bougeoir.jpg",
-        price: "15 CHF",
-        description: "Bougeoir en véritable bois (sans les bougies)",
-        category: ["divers", "salon", "chambre"],
-        sold: false
+        image:
+          "images/balance.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Balance - neuve",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/bouilloire.jpg",
-        price: "10 CHF",
-        description: "Bouilloire",
-        category: ["cuisine"],
-        sold: false
-      },
 
       {
-        image: "images/bulk.jpg",
-        price: "5 CHF",
-        description: "Shakers Bulk x2 - neufs",
-        category: ["cuisine"],
-        sold: false
+        image:
+          "images/boite cables.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Boîte pour organiser et cacher les câbles",
+
+        section:
+          "maison",
+
+        category:
+          ["divers"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/cadre noir.jpg",
-        price: "10 CHF",
-        description: "Cadre photo noir design",
-        category: ["divers", "chambre", "salon"],
-        sold: false
-      },
 
       {
-        image: "images/calendrier.jpg",
-        price: "3 CHF",
-        description: "Calendrier",
-        category: ["chambre", "divers"],
-        sold: false
+        image:
+          "images/boite fromage.jpg",
+
+        price:
+          "2 CHF",
+
+        description:
+          "Boîte à fromage",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/cheese.jpg",
-        price: "10 CHF",
-        description: "Boîte céramique et set à fromage de 4 pics - neuf",
-        category: ["cuisine"],
-        sold: false
-      },
 
       {
-        image: "images/coquetiers.jpg",
-        price: "5 CHF",
-        description: "Lot de 6 coquetiers - neuf",
-        category: ["cuisine"],
-        sold: false
+        image:
+          "images/bougeoir.jpg",
+
+        price:
+          "15 CHF",
+
+        description:
+          "Bougeoir en véritable bois (sans les bougies)",
+
+        section:
+          "maison",
+
+        category:
+          ["divers", "salon", "chambre"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/coupelle bois.jpg",
-        price: "5 CHF",
-        description: "Etagère suspendue corde porte plante ou déco en bois",
-        category: ["divers"],
-        sold: false
-      },
 
       {
-        image: "images/drone.jpg",
-        price: "10 CHF",
-        description: "Mini drone Parrot - batterie à changer",
-        category: ["divers"],
-        sold: false
+        image:
+          "images/bouilloire.jpg",
+
+        price:
+          "10 CHF",
+
+        description:
+          "Bouilloire",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/dyson.jpg",
-        price: "10 CHF",
-        description: "Accessoire Dyson, adaptateur angles et surfaces éloignées - neuf",
-        category: ["salon", "divers"],
-        sold: false
-      },
 
       {
-        image: "images/eponges.jpg",
-        price: "2 CHF",
-        description: "Éponges en silicone de cuisine - neuves",
-        category: ["cuisine"],
-        sold: false
+        image:
+          "images/bulk.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Shakers Bulk x2 - neufs",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/glacons.jpg",
-        price: "2 CHF",
-        description: "Bac à glaçons ananas réutilisables - neuf",
-        category: ["cuisine"],
-        sold: false
-      },
 
       {
-        image: "images/housse valise.jpg",
-        price: "10 CHF",
-        description: "Housses de valise x5 - neuves",
-        category: ["divers"],
-        sold: false
+        image:
+          "images/cadre noir.jpg",
+
+        price:
+          "10 CHF",
+
+        description:
+          "Cadre photo noir design",
+
+        section:
+          "maison",
+
+        category:
+          ["divers", "chambre", "salon"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/jardin.jpg",
-        price: "5 CHF",
-        description: "Mini potager de 4 pots en verre",
-        category: ["divers"],
-        sold: false
-      },
 
       {
-        image: "images/jus.jpg",
-        price: "10 CHF",
-        description: "Appareil Tefal à faire des jus - neuf",
-        category: ["cuisine"],
-        sold: false
+        image:
+          "images/calendrier.jpg",
+
+        price:
+          "3 CHF",
+
+        description:
+          "Calendrier",
+
+        section:
+          "maison",
+
+        category:
+          ["chambre", "divers"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/livres.jpg",
-        price: "5 CHF",
-        description: "Carnets, jolis blocs-notes - neufs",
-        category: ["divers"],
-        sold: false
-      },
 
       {
-        image: "images/machine pates.jpg",
-        price: "10 CHF",
-        description: "Machine à pâtes - neuve",
-        category: ["cuisine"],
-        sold: false
+        image:
+          "images/cheese.jpg",
+
+        price:
+          "10 CHF",
+
+        description:
+          "Boîte céramique et set à fromage de 4 pics - neuf",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/manette.jpg",
-        price: "25 CHF",
-        description: "Manette Google Stadia bluetooth - neuve",
-        category: ["divers"],
-        sold: false
-      },
 
       {
-        image: "images/papiers cuisine.jpg",
-        price: "10 CHF",
-        description: "Distributeur et coupe-film/papiers de cuisine - neuf",
-        category: ["cuisine"],
-        sold: false
+        image:
+          "images/coquetiers.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Lot de 6 coquetiers - neuf",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/pieds lit.jpg",
-        price: "5 CHF",
-        description: "Pieds de lit 12 cm",
-        category: ["chambre", "divers"],
-        sold: false
-      },
 
       {
-        image: "images/poisson plat.jpg",
-        price: "5 CHF",
-        description: "Plat en forme de poisson",
-        category: ["cuisine"],
-        sold: false
+        image:
+          "images/coupelle bois.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Etagère suspendue corde porte plante ou déco en bois",
+
+        section:
+          "maison",
+
+        category:
+          ["divers"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/pots verre.jpg",
-        price: "2 CHF",
-        description: "Pots en verre et corde",
-        category: ["divers"],
-        sold: false
-      },
 
       {
-        image: "images/saucisson.jpg",
-        price: "10 CHF",
-        description: "Machine à saucisson - neuve",
-        category: ["cuisine"],
-        sold: false
+        image:
+          "images/drone.jpg",
+
+        price:
+          "10 CHF",
+
+        description:
+          "Mini drone Parrot - batterie à changer",
+
+        section:
+          "maison",
+
+        category:
+          ["divers"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/valise xl.jpg",
-        price: "20 CHF",
-        description: "Valise soute Hauptstadtkoffer XL (70 x 48 x 30 cm)",
-        category: ["divers"],
-        sold: false
-      },
 
       {
-        image: "images/valise tissu.jpg",
-        price: "10 CHF",
-        description: "Valise soute en tissu (62 x 43 x 26 cm) - abimée",
-        category: ["divers"],
-        sold: false
+        image:
+          "images/dyson.jpg",
+
+        price:
+          "10 CHF",
+
+        description:
+          "Accessoire Dyson, adaptateur angles et surfaces éloignées - neuf",
+
+        section:
+          "maison",
+
+        category:
+          ["salon", "divers"],
+
+        sold:
+          false
       },
 
-      {
-        image: "images/verres carres.jpg",
-        price: "20 CHF",
-        description: "Lot de 4 verres design, cocktails - neufs",
-        category: ["cuisine"],
-        sold: false
-      },
 
       {
-        image: "images/verres chope.jpg",
-        price: "5 CHF",
-        description: "Chopes XL",
-        category: ["cuisine"],
-        sold: false
+        image:
+          "images/eponges.jpg",
+
+        price:
+          "2 CHF",
+
+        description:
+          "Éponges en silicone de cuisine - neuves",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
       },
 
+
       {
-        image: "images/verres pied.jpg",
-        price: "5 CHF",
-        description: "Verres à pied x5",
-        category: ["cuisine"],
-        sold: false
+        image:
+          "images/glacons.jpg",
+
+        price:
+          "2 CHF",
+
+        description:
+          "Bac à glaçons ananas réutilisables - neuf",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/housse valise.jpg",
+
+        price:
+          "10 CHF",
+
+        description:
+          "Housses de valise x5 - neuves",
+
+        section:
+          "maison",
+
+        category:
+          ["divers"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/jardin.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Mini potager de 4 pots en verre",
+
+        section:
+          "maison",
+
+        category:
+          ["divers"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/jus.jpg",
+
+        price:
+          "10 CHF",
+
+        description:
+          "Appareil Tefal à faire des jus - neuf",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/livres.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Carnets, jolis blocs-notes - neufs",
+
+        section:
+          "maison",
+
+        category:
+          ["divers"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/machine pates.jpg",
+
+        price:
+          "10 CHF",
+
+        description:
+          "Machine à pâtes - neuve",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/manette.jpg",
+
+        price:
+          "25 CHF",
+
+        description:
+          "Manette Google Stadia bluetooth - neuve",
+
+        section:
+          "maison",
+
+        category:
+          ["divers"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/papiers cuisine.jpg",
+
+        price:
+          "10 CHF",
+
+        description:
+          "Distributeur et coupe-film/papiers de cuisine - neuf",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/pieds lit.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Pieds de lit 12 cm",
+
+        section:
+          "maison",
+
+        category:
+          ["chambre", "divers"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/poisson plat.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Plat en forme de poisson",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/pots verre.jpg",
+
+        price:
+          "2 CHF",
+
+        description:
+          "Pots en verre et corde",
+
+        section:
+          "maison",
+
+        category:
+          ["divers"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/saucisson.jpg",
+
+        price:
+          "10 CHF",
+
+        description:
+          "Machine à saucisson - neuve",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/valise xl.jpg",
+
+        price:
+          "20 CHF",
+
+        description:
+          "Valise soute Hauptstadtkoffer XL (70 x 48 x 30 cm)",
+
+        section:
+          "maison",
+
+        category:
+          ["divers"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/valise tissu.jpg",
+
+        price:
+          "10 CHF",
+
+        description:
+          "Valise soute en tissu (62 x 43 x 26 cm) - abimée",
+
+        section:
+          "maison",
+
+        category:
+          ["divers"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/verres carres.jpg",
+
+        price:
+          "20 CHF",
+
+        description:
+          "Lot de 4 verres design, cocktails - neufs",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/verres chope.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Chopes XL",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
+      },
+
+
+      {
+        image:
+          "images/verres pied.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Verres à pied x5",
+
+        section:
+          "maison",
+
+        category:
+          ["cuisine"],
+
+        sold:
+          false
       }
+
+
+      /*
+      ==========================================
+      EXEMPLE FUTUR POUR UN VÊTEMENT
+      ==========================================
+
+      ,
+      {
+        image:
+          "images/tshirt-noir.jpg",
+
+        price:
+          "5 CHF",
+
+        description:
+          "Tee-shirt noir - taille M",
+
+        section:
+          "vetements",
+
+        category:
+          ["tee-shirts"],
+
+        sold:
+          false
+      }
+
+      */
+
 
     ];
 
-    let currentFilter = "all";
+
+
+    /* =========================
+       ÉTAT DES FILTRES
+       ========================= */
+
+    let currentSection = "all";
+
+    let currentCategory = null;
+
+
+
+    /* =========================
+       AFFICHAGE DES ARTICLES
+       ========================= */
 
     function displayItems() {
 
       const availableContainer =
-        document.getElementById("available-items");
+        document.getElementById(
+          "available-items"
+        );
+
 
       availableContainer.innerHTML = "";
 
+
       items.forEach(item => {
+
+
+        /* MASQUER LES VENDUS */
 
         if (item.sold) {
           return;
         }
 
+
+        /* FILTRE SECTION */
+
         if (
-          currentFilter !== "all" &&
-          !item.category.includes(currentFilter)
+          currentSection !== "all" &&
+          item.section !== currentSection
         ) {
           return;
         }
 
-        const card = document.createElement("div");
 
-        card.className = "item";
+        /* FILTRE SOUS-CATÉGORIE */
 
-        card.onclick = () => openModal(item);
+        if (
+          currentCategory !== null &&
+          !item.category.includes(
+            currentCategory
+          )
+        ) {
+          return;
+        }
+
+
+        /* CRÉATION CARTE */
+
+        const card =
+          document.createElement("div");
+
+
+        card.className =
+          "item";
+
+
+        card.onclick =
+          () => openModal(item);
+
 
         card.innerHTML = `
-          <img src="${item.image}" alt="${item.description}">
+
+          <img
+            src="${item.image}"
+            alt="${item.description}"
+          >
 
           <div class="content">
+
             <div class="price">
               ${item.price}
             </div>
@@ -569,64 +1455,256 @@
             <div class="description">
               ${item.description}
             </div>
+
           </div>
+
         `;
 
-        availableContainer.appendChild(card);
+
+        availableContainer
+          .appendChild(card);
 
       });
 
     }
 
-    function filterItems(category) {
-      currentFilter = category;
+
+
+    /* =========================
+       FILTRE PRINCIPAL
+       ========================= */
+
+    function filterSection(section) {
+
+      currentSection =
+        section;
+
+
+      currentCategory =
+        null;
+
+
+      /* BOUTONS PRINCIPAUX */
+
+      document
+        .querySelectorAll(
+          ".main-filters button"
+        )
+        .forEach(button => {
+
+          button.classList
+            .remove("active");
+
+        });
+
+
+      document
+        .getElementById(
+          "main-" + section
+        )
+        .classList
+        .add("active");
+
+
+
+      /* CACHER TOUS LES SOUS-FILTRES */
+
+      document
+        .getElementById(
+          "maison-filters"
+        )
+        .classList
+        .remove("visible");
+
+
+      document
+        .getElementById(
+          "vetements-filters"
+        )
+        .classList
+        .remove("visible");
+
+
+
+      /* RETIRER LES SOUS-FILTRES ACTIFS */
+
+      document
+        .querySelectorAll(
+          ".sub-filters button"
+        )
+        .forEach(button => {
+
+          button.classList
+            .remove("active");
+
+        });
+
+
+
+      /* AFFICHER LES SOUS-FILTRES MAISON */
+
+      if (section === "maison") {
+
+        document
+          .getElementById(
+            "maison-filters"
+          )
+          .classList
+          .add("visible");
+
+      }
+
+
+
+      /* AFFICHER LES SOUS-FILTRES VÊTEMENTS */
+
+      if (section === "vetements") {
+
+        document
+          .getElementById(
+            "vetements-filters"
+          )
+          .classList
+          .add("visible");
+
+      }
+
+
       displayItems();
+
     }
+
+
+
+    /* =========================
+       SOUS-CATÉGORIE
+       ========================= */
+
+    function filterCategory(
+      category,
+      button
+    ) {
+
+      currentCategory =
+        category;
+
+
+      document
+        .querySelectorAll(
+          ".sub-filters button"
+        )
+        .forEach(btn => {
+
+          btn.classList
+            .remove("active");
+
+        });
+
+
+      button.classList
+        .add("active");
+
+
+      displayItems();
+
+    }
+
+
+
+    /* =========================
+       WHATSAPP
+       ========================= */
 
     function openModal(item) {
 
       const message =
+
         "Bonjour, je suis intéressé(e) par : " +
+
         item.description +
+
         " (" +
+
         item.price +
+
         ")";
 
+
       const whatsappButton =
-        document.getElementById("whatsapp-button");
+
+        document.getElementById(
+          "whatsapp-button"
+        );
+
 
       whatsappButton.href =
+
         "https://wa.me/" +
+
         phoneNumber +
+
         "?text=" +
-        encodeURIComponent(message);
+
+        encodeURIComponent(
+          message
+        );
+
 
       document
-        .getElementById("contact-modal")
-        .style.display = "flex";
+        .getElementById(
+          "contact-modal"
+        )
+        .style.display =
+        "flex";
+
     }
+
+
 
     function closeModal() {
 
       document
-        .getElementById("contact-modal")
-        .style.display = "none";
+        .getElementById(
+          "contact-modal"
+        )
+        .style.display =
+        "none";
 
     }
 
+
+
+    /* FERMER EN CLIQUANT À CÔTÉ */
+
     document
-      .getElementById("contact-modal")
-      .addEventListener("click", function(event) {
+      .getElementById(
+        "contact-modal"
+      )
+      .addEventListener(
+        "click",
+        function(event) {
 
-        if (event.target === this) {
-          closeModal();
+          if (
+            event.target === this
+          ) {
+
+            closeModal();
+
+          }
+
         }
+      );
 
-      });
+
+
+    /* AFFICHAGE INITIAL */
 
     displayItems();
 
+
   </script>
 
+
 </body>
+
 </html>
