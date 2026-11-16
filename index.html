@@ -2,35 +2,48 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <h1>
-  VIDE MAISON &amp; DRESSING
-</h1>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-<p class="pickup-info">
-  À récupérer à Bussigny ou EPFL
-</p>
+  <title>
+    Vide maison & dressing
+  </title>
+
 
   <style>
 
+    /* =========================================================
+       COULEURS
+       ========================================================= */
+
     :root {
 
-      /* 🟣 COULEUR MAISON */
+      /* 🟣 MAISON */
       --maison: #8E50FF;
 
-      /* 🟡 COULEUR VÊTEMENTS */
+      /* 🟡 VÊTEMENTS */
       --vetements: #FFD596;
 
-      /* 🟡 COULEUR PRIX VÊTEMENTS */
+      /* 🟡 PRIX VÊTEMENTS */
       --vetements-prix: #E6A85F;
 
     }
 
 
+
+    /* =========================================================
+       PAGE
+       ========================================================= */
+
     body {
+
       margin: 0;
+
       min-height: 100vh;
 
       font-family:
@@ -49,264 +62,487 @@
       );
 
       color: #000000;
+
     }
 
 
-    /* =========================
+
+    /* =========================================================
        HEADER
-       ========================= */
+       ========================================================= */
 
     header {
+
       text-align: center;
-      padding: 50px 20px 20px;
+
+      padding:
+        50px
+        20px
+        20px;
+
     }
 
 
     h1 {
-      margin-bottom: 28px;
+
+      margin:
+        0
+        0
+        10px;
+
       font-weight: 700;
+
       letter-spacing: 0;
+
       font-size: 42px;
+
       color: #FFFFFF;
+
     }
 
+
+
+    /* PETITE PHRASE SOUS LE TITRE */
+
     .pickup-info {
-  margin-top: -16px;
-  margin-bottom: 24px;
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.85);
-  font-family: Arial, Helvetica, sans-serif;
-}
+
+      margin:
+        0
+        0
+        28px;
+
+      font-family:
+        "Arial Rounded MT Bold",
+        "Arial Rounded MT",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 15px;
+
+      font-weight: 700;
+
+      color:
+        rgba(
+          255,
+          255,
+          255,
+          0.82
+        );
+
+      text-align: center;
+
+    }
 
 
-    /* =========================
+
+    /* =========================================================
        FILTRES PRINCIPAUX
-       ========================= */
+       ========================================================= */
 
     .main-filters {
+
       display: flex;
+
       justify-content: center;
+
       align-items: center;
+
       flex-wrap: wrap;
+
       gap: 12px;
+
       margin-bottom: 14px;
+
     }
 
 
     .main-filters button {
+
       background: white;
-      padding: 11px 22px;
+
+      padding:
+        11px
+        22px;
+
       border-radius: 25px;
+
       cursor: pointer;
+
       font-size: 15px;
+
       font-weight: 700;
+
       font-family: inherit;
+
       transition: 0.2s;
+
     }
+
 
 
     /* 🟣 MAISON */
 
     #main-maison {
-      border: 2px solid var(--maison);
-      color: var(--maison);
+
+      border:
+        2px
+        solid
+        var(--maison);
+
+      color:
+        var(--maison);
+
     }
 
 
     #main-maison:hover,
     #main-maison.active {
-      background: var(--maison);
+
+      background:
+        var(--maison);
+
       color: white;
+
     }
+
 
 
     /* 🟡 VÊTEMENTS */
 
     #main-vetements {
-      border: 2px solid var(--vetements);
+
+      border:
+        2px
+        solid
+        var(--vetements);
+
       color: #8A6547;
+
     }
 
 
     #main-vetements:hover,
     #main-vetements.active {
-      background: var(--vetements);
+
+      background:
+        var(--vetements);
+
       color: #4A3527;
+
     }
 
 
-    /* =========================
+
+    /* =========================================================
        SOUS-FILTRES
-       ========================= */
+       ========================================================= */
 
     .sub-filters {
+
       display: none;
+
       justify-content: center;
+
       flex-wrap: wrap;
+
       gap: 8px;
-      margin: 0 auto 32px;
+
+      margin:
+        0
+        auto
+        32px;
+
     }
 
 
     .sub-filters.visible {
+
       display: flex;
+
     }
 
 
     .sub-filters button {
+
       background: white;
-      padding: 8px 14px;
+
+      padding:
+        8px
+        14px;
+
       border-radius: 20px;
+
       cursor: pointer;
+
       font-size: 13px;
+
       font-family: inherit;
+
       transition: 0.2s;
+
     }
+
 
 
     /* 🟣 SOUS-FILTRES MAISON */
 
     #maison-filters button {
-      border: 1px solid var(--maison);
-      color: var(--maison);
+
+      border:
+        1px
+        solid
+        var(--maison);
+
+      color:
+        var(--maison);
+
     }
 
 
     #maison-filters button:hover,
     #maison-filters button.active {
-      background: var(--maison);
+
+      background:
+        var(--maison);
+
       color: white;
+
     }
+
 
 
     /* 🟡 SOUS-FILTRES VÊTEMENTS */
 
     #vetements-filters button {
-      border: 1px solid var(--vetements);
+
+      border:
+        1px
+        solid
+        var(--vetements);
+
       color: #8A6547;
+
     }
 
 
     #vetements-filters button:hover,
     #vetements-filters button.active {
-      background: var(--vetements);
+
+      background:
+        var(--vetements);
+
       color: #4A3527;
+
     }
 
 
-    /* =========================
+
+    /* =========================================================
        CONTENU
-       ========================= */
+       ========================================================= */
 
     .container {
-      width: min(1100px, 92%);
+
+      width:
+        min(
+          1100px,
+          92%
+        );
+
       margin: auto;
+
       padding-bottom: 50px;
+
     }
 
 
     .grid {
+
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+
+      grid-template-columns:
+        repeat(
+          4,
+          1fr
+        );
+
       gap: 24px;
+
     }
 
 
+
+    /* =========================================================
+       CARTES
+       ========================================================= */
+
     .item {
+
       background: white;
+
       border-radius: 22px;
+
       overflow: hidden;
 
       box-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.05);
+        0
+        2px
+        10px
+        rgba(
+          0,
+          0,
+          0,
+          0.05
+        );
 
       cursor: pointer;
 
       transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease;
+        transform
+        0.15s
+        ease,
+        box-shadow
+        0.15s
+        ease;
+
     }
 
 
     .item:hover {
-      transform: translateY(-2px);
+
+      transform:
+        translateY(
+          -2px
+        );
 
       box-shadow:
-        0 7px 20px rgba(0, 0, 0, 0.12);
+        0
+        7px
+        20px
+        rgba(
+          0,
+          0,
+          0,
+          0.12
+        );
+
     }
 
 
     .item img {
+
       width: 100%;
-      aspect-ratio: 1 / 1;
+
+      aspect-ratio:
+        1 / 1;
+
       object-fit: cover;
+
       display: block;
+
     }
 
 
     .content {
+
       padding: 16px;
+
     }
 
 
     .price {
+
       font-size: 21px;
+
       font-weight: 700;
+
       margin-bottom: 7px;
+
     }
+
 
 
     /* 🟣 PRIX MAISON */
 
     .item.maison .price {
-      color: var(--maison);
+
+      color:
+        var(--maison);
+
     }
+
 
 
     /* 🟡 PRIX VÊTEMENTS */
 
     .item.vetements .price {
-      color: var(--vetements-prix);
+
+      color:
+        var(
+          --vetements-prix
+        );
+
     }
 
 
     .description {
+
       font-size: 14px;
+
       color: #555555;
+
       line-height: 1.4;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
+
     }
 
 
-    /* =========================
+
+    /* =========================================================
        FENÊTRE WHATSAPP
-       ========================= */
+       ========================================================= */
 
     .modal {
+
       display: none;
+
       position: fixed;
+
       inset: 0;
 
       background:
-        rgba(0, 0, 0, 0.35);
+        rgba(
+          0,
+          0,
+          0,
+          0.35
+        );
 
       justify-content: center;
+
       align-items: center;
 
       z-index: 1000;
 
       padding: 20px;
+
     }
 
 
     .modal-content {
+
       background: white;
 
-      width: min(360px, 90%);
+      width:
+        min(
+          360px,
+          90%
+        );
 
       border-radius: 22px;
 
@@ -315,20 +551,34 @@
       text-align: center;
 
       box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.15);
+        0
+        10px
+        30px
+        rgba(
+          0,
+          0,
+          0,
+          0.15
+        );
 
       color: #000000;
+
     }
 
 
     .modal-content h3 {
+
       margin-top: 0;
+
       margin-bottom: 14px;
+
       color: #000000;
+
     }
 
 
     .modal-content p {
+
       font-family:
         Arial,
         Helvetica,
@@ -338,30 +588,40 @@
 
       line-height: 1.5;
 
-      margin: 0 0 8px;
+      margin:
+        0
+        0
+        8px;
+
     }
 
 
     .whatsapp-button {
+
       display: inline-block;
 
       margin-top: 14px;
 
-      background: var(--maison);
+      background:
+        var(--maison);
 
       color: white;
 
       text-decoration: none;
 
-      padding: 12px 18px;
+      padding:
+        12px
+        18px;
 
       border-radius: 20px;
 
       font-weight: 700;
+
     }
 
 
     .close-button {
+
       margin-top: 14px;
 
       border: none;
@@ -375,99 +635,164 @@
       font-size: 14px;
 
       font-family: inherit;
+
     }
 
 
-    /* =========================
+
+    /* =========================================================
        MOBILE
-       ========================= */
+       ========================================================= */
 
     @media (max-width: 600px) {
 
+
       header {
-        padding: 28px 12px 14px;
+
+        padding:
+          28px
+          12px
+          14px;
+
       }
 
 
       h1 {
+
         font-size: 30px;
+
         color: #FFFFFF;
+
+        margin-bottom: 8px;
+
       }
 
+
       .pickup-info {
-  font-size: 13px;
-}
+
+        font-size: 13px;
+
+        margin-bottom: 22px;
+
+      }
 
 
       .main-filters {
+
         gap: 7px;
+
         margin-bottom: 11px;
+
       }
 
 
       .main-filters button {
-        padding: 9px 14px;
+
+        padding:
+          9px
+          14px;
+
         font-size: 13px;
+
       }
 
 
       .sub-filters {
+
         gap: 6px;
+
         margin-bottom: 22px;
+
       }
 
 
       .sub-filters button {
-        padding: 7px 10px;
+
+        padding:
+          7px
+          10px;
+
         font-size: 11px;
+
       }
 
 
       .container {
+
         width: 94%;
+
       }
 
 
       .grid {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+          repeat(
+            2,
+            1fr
+          );
+
         gap: 10px;
+
       }
 
 
       .content {
+
         padding: 10px;
+
       }
 
 
       .price {
+
         font-size: 17px;
+
       }
 
 
       .description {
+
         font-size: 12px;
+
       }
 
 
       .item {
+
         border-radius: 16px;
+
       }
 
+
     }
+
 
   </style>
 
 </head>
 
 
+
 <body>
 
 
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+
   <header>
+
 
     <h1>
       VIDE MAISON &amp; DRESSING
     </h1>
+
+
+    <p class="pickup-info">
+      À récupérer à Bussigny ou EPFL
+    </p>
+
 
 
     <!-- =========================
@@ -475,6 +800,7 @@
          ========================= -->
 
     <div class="main-filters">
+
 
       <button
         id="main-maison"
@@ -492,82 +818,122 @@
         Vêtements
       </button>
 
+
     </div>
 
 
-    <!-- 🟣 SOUS-FILTRES MAISON -->
+
+    <!-- =========================
+         🟣 SOUS-FILTRES MAISON
+         ========================= -->
 
     <div
       class="sub-filters visible"
       id="maison-filters"
     >
 
-      <button onclick="filterCategory('cuisine', this)">
+
+      <button
+        onclick="filterCategory('cuisine', this)"
+      >
         Cuisine
       </button>
 
 
-      <button onclick="filterCategory('salon', this)">
+      <button
+        onclick="filterCategory('salon', this)"
+      >
         Déco / salon
       </button>
 
 
-      <button onclick="filterCategory('chambre', this)">
+      <button
+        onclick="filterCategory('chambre', this)"
+      >
         Chambre
       </button>
 
 
-      <button onclick="filterCategory('salle-de-bain', this)">
+      <button
+        onclick="filterCategory('salle-de-bain', this)"
+      >
         Salle de bain
       </button>
 
 
-      <button onclick="filterCategory('divers', this)">
+      <button
+        onclick="filterCategory('divers', this)"
+      >
         Divers
       </button>
+
 
     </div>
 
 
-    <!-- 🟡 SOUS-FILTRES VÊTEMENTS -->
+
+    <!-- =========================
+         🟡 SOUS-FILTRES VÊTEMENTS
+         ========================= -->
 
     <div
       class="sub-filters"
       id="vetements-filters"
     >
 
-      <button onclick="filterCategory('tee-shirts', this)">
+
+      <button
+        onclick="filterCategory('tee-shirts', this)"
+      >
         Tee-shirts
       </button>
 
-      <button onclick="filterCategory('tops et crops', this)">
+
+      <button
+        onclick="filterCategory('tops-crops', this)"
+      >
         Tops et crops
       </button>
 
-      <button onclick="filterCategory('pulls-hoodies', this)">
+
+      <button
+        onclick="filterCategory('pulls-hoodies', this)"
+      >
         Pulls, hoodies
       </button>
 
 
-      <button onclick="filterCategory('manteaux-vestes', this)">
+      <button
+        onclick="filterCategory('manteaux-vestes', this)"
+      >
         Manteaux, vestes
       </button>
 
 
-      <button onclick="filterCategory('accessoires', this)">
+      <button
+        onclick="filterCategory('accessoires', this)"
+      >
         Accessoires
       </button>
 
 
-      <button onclick="filterCategory('chaussures', this)">
+      <button
+        onclick="filterCategory('chaussures', this)"
+      >
         Chaussures H/F
       </button>
 
+
     </div>
+
 
   </header>
 
 
+
+  <!-- =========================================================
+       ARTICLES
+       ========================================================= -->
 
   <main class="container">
 
@@ -580,16 +946,18 @@
 
 
 
-  <!-- =========================
+  <!-- =========================================================
        FENÊTRE CONTACT
-       ========================= -->
+       ========================================================= -->
 
   <div
     class="modal"
     id="contact-modal"
   >
 
+
     <div class="modal-content">
+
 
       <h3>
         Vous êtes intéressé(e) ?
@@ -621,7 +989,9 @@
         Fermer
       </button>
 
+
     </div>
+
 
   </div>
 
@@ -630,22 +1000,24 @@
   <script>
 
 
-    /* =========================
+    /* =========================================================
        NUMÉRO WHATSAPP
-       ========================= */
+       ========================================================= */
 
-    const phoneNumber = "41782207274";
+    const phoneNumber =
+      "41782207274";
 
 
 
     /* =========================================================
-       🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣
-                 MAISON                 
-       🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣
+       🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣
+                        MAISON
+       🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣
        ========================================================= */
 
 
     const items = [
+
 
 
       {
@@ -908,13 +1280,19 @@
         category: ["cuisine"]
       },
 
-       {
-        image: "images/télé.png",
+
+      /* =========================
+         📺 TÉLÉVISION
+         ========================= */
+
+      {
+        image: "images/tele.png",
         price: "30 CHF",
-        description: "Télévision Samsung LCD 37 pouces résolution Full HD (91x62x25,5cm)",
+        description: "Télévision Samsung LCD 37 pouces résolution Full HD (91 x 62 x 25,5 cm)",
         section: "maison",
         category: ["salon"]
-      },     
+      },
+
 
       {
         image: "images/valise xl.jpg",
@@ -963,232 +1341,272 @@
 
 
       /* =========================================================
-         🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡
-                  VÊTEMENTS               
-         🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡
+       🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡
+                      VÊTEMENTS
+       🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡
          ========================================================= */
 
 
-{
-  image: "images/CT Bershka.png",
-  price: "3 CHF",
-  description: "Top / crop Bershka",
-  section: "vetements",
-  category: ["tops-crops"]
-},
 
-{
-  image: "images/CT Croisé.png",
-  price: "3 CHF",
-  description: "Top / crop croisé",
-  section: "vetements",
-  category: ["tops-crops"]
-},
+      /* =========================
+         TOPS & CROPS
+         ========================= */
 
-{
-  image: "images/CT Mediterranee.png",
-  price: "3 CHF",
-  description: "Top / crop Méditerranée",
-  section: "vetements",
-  category: ["tops-crops"]
-},
 
-{
-  image: "images/CT Roxy.png",
-  price: "3 CHF",
-  description: "Top / crop Roxy",
-  section: "vetements",
-  category: ["tops-crops"]
-},
+      {
+        image: "images/CT Bershka.png",
+        price: "3 CHF",
+        description: "Top / crop Bershka",
+        section: "vetements",
+        category: ["tops-crops"]
+      },
 
-{
-  image: "images/TS Asos gris.png",
-  price: "10 CHF",
-  description: "Tee-shirt Asos gris",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
 
-{
-  image: "images/TS bleu.png",
-  price: "5 CHF",
-  description: "Tee-shirt bleu",
-  section: "vetements",
-  category: ["tee-shirts"]
-},      
+      {
+        image: "images/CT Croisé.png",
+        price: "3 CHF",
+        description: "Top / crop croisé",
+        section: "vetements",
+        category: ["tops-crops"]
+      },
 
-{
-  image: "images/TS Elite.png",
-  price: "5 CHF",
-  description: "Tee-shirt Elite",
-  section: "vetements",
-  category: ["tee-shirts"]
-},      
-      
-{
-  image: "images/TS Eme blanc.png",
-  price: "25 CHF",
-  description: "Tee-shirt Eme blanc",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
 
-{
-  image: "images/TS HNRLDN.png",
-  price: "20 CHF",
-  description: "Tee-shirt HNRLDN",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/CT Mediterranee.png",
+        price: "3 CHF",
+        description: "Top / crop Méditerranée",
+        section: "vetements",
+        category: ["tops-crops"]
+      },
 
-{
-  image: "images/TS Kitsuné.png",
-  price: "70 CHF",
-  description: "Tee-shirt Kitsuné",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
 
-{
-  image: "images/TS Kooples.png",
-  price: "50 CHF",
-  description: "Tee-shirt The Kooples",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/CT Roxy.png",
+        price: "3 CHF",
+        description: "Top / crop Roxy",
+        section: "vetements",
+        category: ["tops-crops"]
+      },
 
-{
-  image: "images/TS Levis blanc.png",
-  price: "30 CHF",
-  description: "Tee-shirt Levi's blanc",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
 
-{
-  image: "images/TS Maison labiche.png",
-  price: "20 CHF",
-  description: "Tee-shirt Maison Labiche",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
 
-{
-  image: "images/TS Mango.png",
-  price: "5 CHF",
-  description: "Tee-shirt Mango",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
+      /* =========================
+         TEE-SHIRTS
+         ========================= */
 
-{
-  image: "images/TS Nasty.png",
-  price: "5 CHF",
-  description: "Tee-shirt Nasty",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
 
-{
-  image: "images/TS PLT.png",
-  price: "3 CHF",
-  description: "Tee-shirt PLT",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
-      
-{
-  image: "images/TS Pyla.png",
-  price: "5 CHF",
-  description: "Tee-shirt Pyla",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/TS Asos gris.png",
+        price: "10 CHF",
+        description: "Tee-shirt Asos gris",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
 
-{
-  image: "images/TS Sabo.png",
-  price: "3 CHF",
-  description: "Tee-shirt Sabo",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
 
-{
-  image: "images/TS Sporano.png",
-  price: "3 CHF",
-  description: "Tee-shirt Sporano",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
-      
-{
-  image: "images/TS Suspicious 2.png",
-  price: "20 CHF",
-  description: "Tee-shirt Suspicious",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/TS bleu.png",
+        price: "5 CHF",
+        description: "Tee-shirt bleu",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
 
-{
-  image: "images/TS Suspicious 22.png",
-  price: "20 CHF",
-  description: "Tee-shirt Suspicious",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
 
-{
-  image: "images/TS Suspicious.png",
-  price: "20 CHF",
-  description: "Tee-shirt Suspicious",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/TS Elite.png",
+        price: "5 CHF",
+        description: "Tee-shirt Elite",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
 
-{
-  image: "images/TS Sweet.png",
-  price: "25 CHF",
-  description: "Tee-shirt Sweet",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
 
-{
-  image: "images/TS Zara choices.png",
-  price: "8 CHF",
-  description: "Tee-shirt Zara Choices",
-  section: "vetements",
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/TS Eme blanc.png",
+        price: "25 CHF",
+        description: "Tee-shirt Eme blanc",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
 
-{
-  image: "images/TS Zara orange.png",
-  price: "5 CHF",
-  description: "Tee-shirt Zara orange",
-  section: "vetements",
-  category: ["tee-shirts"]
-}
+
+      {
+        image: "images/TS HNRLDN.png",
+        price: "20 CHF",
+        description: "Tee-shirt HNRLDN",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Kitsuné.png",
+        price: "70 CHF",
+        description: "Tee-shirt Kitsuné",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Kooples.png",
+        price: "50 CHF",
+        description: "Tee-shirt The Kooples",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Levis blanc.png",
+        price: "30 CHF",
+        description: "Tee-shirt Levi's blanc",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Maison labiche.png",
+        price: "20 CHF",
+        description: "Tee-shirt Maison Labiche",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Mango.png",
+        price: "5 CHF",
+        description: "Tee-shirt Mango",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Nasty.png",
+        price: "5 CHF",
+        description: "Tee-shirt Nasty",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS PLT.png",
+        price: "3 CHF",
+        description: "Tee-shirt PLT",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Pyla.png",
+        price: "5 CHF",
+        description: "Tee-shirt Pyla",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Sabo.png",
+        price: "3 CHF",
+        description: "Tee-shirt Sabo",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Sporano.png",
+        price: "3 CHF",
+        description: "Tee-shirt Sporano",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Suspicious 2.png",
+        price: "20 CHF",
+        description: "Tee-shirt Suspicious",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Suspicious 22.png",
+        price: "20 CHF",
+        description: "Tee-shirt Suspicious",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Suspicious.png",
+        price: "20 CHF",
+        description: "Tee-shirt Suspicious",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Sweet.png",
+        price: "25 CHF",
+        description: "Tee-shirt Sweet",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Zara choices.png",
+        price: "8 CHF",
+        description: "Tee-shirt Zara Choices",
+        section: "vetements",
+        category: ["tee-shirts"]
+      },
+
+
+      {
+        image: "images/TS Zara orange.png",
+        price: "5 CHF",
+        description: "Tee-shirt Zara orange",
+        section: "vetements",
+        category: ["tee-shirts"]
+      }
 
 
     ];
 
 
 
-    /* =========================
-       ÉTAT DES FILTRES
-       ========================= */
+    /* =========================================================
+       FILTRES ACTUELS
+       ========================================================= */
 
-    let currentSection = "maison";
-
-    let currentCategory = null;
-
+    let currentSection =
+      "maison";
 
 
-    /* =========================
+    let currentCategory =
+      null;
+
+
+
+    /* =========================================================
        AFFICHAGE DES ARTICLES
-       ========================= */
+       ========================================================= */
 
     function displayItems() {
+
 
       const availableContainer =
         document.getElementById(
@@ -1196,84 +1614,112 @@
         );
 
 
-      availableContainer.innerHTML = "";
+      availableContainer.innerHTML =
+        "";
 
 
-      items.forEach(item => {
+
+      items.forEach(
+        item => {
 
 
-        /* FILTRE MAISON / VÊTEMENTS */
+          /* FILTRE MAISON / VÊTEMENTS */
 
-        if (
-          item.section !== currentSection
-        ) {
-          return;
-        }
+          if (
+            item.section !==
+            currentSection
+          ) {
 
+            return;
 
-        /* FILTRE SOUS-CATÉGORIE */
-
-        if (
-          currentCategory !== null &&
-          !item.category.includes(
-            currentCategory
-          )
-        ) {
-          return;
-        }
+          }
 
 
-        /* CRÉATION DE LA CARTE */
 
-        const card =
-          document.createElement("div");
+          /* FILTRE SOUS-CATÉGORIE */
+
+          if (
+
+            currentCategory !== null &&
+
+            !item.category.includes(
+              currentCategory
+            )
+
+          ) {
+
+            return;
+
+          }
 
 
-        card.className =
-          "item " + item.section;
+
+          /* CRÉATION DE LA CARTE */
+
+          const card =
+            document.createElement(
+              "div"
+            );
 
 
-        card.onclick =
-          () => openModal(item);
+          card.className =
+            "item " +
+            item.section;
 
 
-        card.innerHTML = `
+          card.onclick =
+            () =>
+              openModal(
+                item
+              );
 
-          <img
-            src="${item.image}"
-            alt="${item.description}"
-          >
 
-          <div class="content">
 
-            <div class="price">
-              ${item.price}
+          card.innerHTML = `
+
+            <img
+              src="${item.image}"
+              alt="${item.description}"
+            >
+
+            <div class="content">
+
+              <div class="price">
+                ${item.price}
+              </div>
+
+              <div class="description">
+                ${item.description}
+              </div>
+
             </div>
 
-            <div class="description">
-              ${item.description}
-            </div>
-
-          </div>
-
-        `;
+          `;
 
 
-        availableContainer
-          .appendChild(card);
 
-      });
+          availableContainer
+            .appendChild(
+              card
+            );
+
+
+        }
+      );
+
 
     }
 
 
 
-    /* =========================
-       FILTRE PRINCIPAL
+    /* =========================================================
        MAISON / VÊTEMENTS
-       ========================= */
+       ========================================================= */
 
-    function filterSection(section) {
+    function filterSection(
+      section
+    ) {
+
 
       currentSection =
         section;
@@ -1283,28 +1729,38 @@
         null;
 
 
+
       /* RETIRER ÉTAT ACTIF */
 
       document
         .querySelectorAll(
           ".main-filters button"
         )
-        .forEach(button => {
+        .forEach(
+          button => {
 
-          button.classList
-            .remove("active");
+            button
+              .classList
+              .remove(
+                "active"
+              );
 
-        });
+          }
+        );
+
 
 
       /* ACTIVER LE BON BOUTON */
 
       document
         .getElementById(
-          "main-" + section
+          "main-" +
+          section
         )
         .classList
-        .add("active");
+        .add(
+          "active"
+        );
 
 
 
@@ -1315,7 +1771,9 @@
           "maison-filters"
         )
         .classList
-        .remove("visible");
+        .remove(
+          "visible"
+        );
 
 
       document
@@ -1323,7 +1781,9 @@
           "vetements-filters"
         )
         .classList
-        .remove("visible");
+        .remove(
+          "visible"
+        );
 
 
 
@@ -1333,90 +1793,123 @@
         .querySelectorAll(
           ".sub-filters button"
         )
-        .forEach(button => {
+        .forEach(
+          button => {
 
-          button.classList
-            .remove("active");
+            button
+              .classList
+              .remove(
+                "active"
+              );
 
-        });
+          }
+        );
 
 
 
-      /* 🟣 AFFICHER LES FILTRES MAISON */
+      /* MAISON */
 
-      if (section === "maison") {
+      if (
+        section ===
+        "maison"
+      ) {
 
         document
           .getElementById(
             "maison-filters"
           )
           .classList
-          .add("visible");
+          .add(
+            "visible"
+          );
 
       }
 
 
 
-      /* 🟡 AFFICHER LES FILTRES VÊTEMENTS */
+      /* VÊTEMENTS */
 
-      if (section === "vetements") {
+      if (
+        section ===
+        "vetements"
+      ) {
 
         document
           .getElementById(
             "vetements-filters"
           )
           .classList
-          .add("visible");
+          .add(
+            "visible"
+          );
 
       }
 
 
+
       displayItems();
+
 
     }
 
 
 
-    /* =========================
+    /* =========================================================
        SOUS-CATÉGORIES
-       ========================= */
+       ========================================================= */
 
     function filterCategory(
       category,
       button
     ) {
 
+
       currentCategory =
         category;
+
 
 
       document
         .querySelectorAll(
           ".sub-filters button"
         )
-        .forEach(btn => {
+        .forEach(
+          btn => {
 
-          btn.classList
-            .remove("active");
+            btn
+              .classList
+              .remove(
+                "active"
+              );
 
-        });
+          }
+        );
 
 
-      button.classList
-        .add("active");
+
+      button
+        .classList
+        .add(
+          "active"
+        );
+
 
 
       displayItems();
+
 
     }
 
 
 
-    /* =========================
+    /* =========================================================
        WHATSAPP
-       ========================= */
+       ========================================================= */
 
-    function openModal(item) {
+    function openModal(
+      item
+    ) {
+
 
       const message =
 
@@ -1431,11 +1924,14 @@
         ")";
 
 
+
       const whatsappButton =
 
-        document.getElementById(
-          "whatsapp-button"
-        );
+        document
+          .getElementById(
+            "whatsapp-button"
+          );
+
 
 
       whatsappButton.href =
@@ -1451,12 +1947,15 @@
         );
 
 
+
       document
         .getElementById(
           "contact-modal"
         )
-        .style.display =
+        .style
+        .display =
         "flex";
+
 
     }
 
@@ -1464,29 +1963,39 @@
 
     function closeModal() {
 
+
       document
         .getElementById(
           "contact-modal"
         )
-        .style.display =
+        .style
+        .display =
         "none";
+
 
     }
 
 
 
-    /* FERMER EN CLIQUANT À CÔTÉ */
+    /* =========================================================
+       FERMER EN CLIQUANT À CÔTÉ
+       ========================================================= */
 
     document
       .getElementById(
         "contact-modal"
       )
       .addEventListener(
+
         "click",
-        function(event) {
+
+        function(
+          event
+        ) {
 
           if (
-            event.target === this
+            event.target ===
+            this
           ) {
 
             closeModal();
@@ -1494,15 +2003,18 @@
           }
 
         }
+
       );
 
 
 
-    /* =========================
-       AFFICHAGE INITIAL
-       ========================= */
+    /* =========================================================
+       DÉMARRAGE
+       ========================================================= */
 
-    filterSection("maison");
+    filterSection(
+      "maison"
+    );
 
 
   </script>
