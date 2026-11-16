@@ -5,14 +5,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Vide maison & dressing </title>
+  <title>Vide maison & dressing</title>
 
   <style>
 
     :root {
+
+      /* 🟣 COULEUR MAISON */
       --maison: #8E50FF;
+
+      /* 🟡 COULEUR VÊTEMENTS */
       --vetements: #FFD596;
+
+      /* 🟡 COULEUR PRIX VÊTEMENTS */
+      --vetements-prix: #E6A85F;
+
     }
+
 
     body {
       margin: 0;
@@ -46,6 +55,7 @@
       padding: 50px 20px 20px;
     }
 
+
     h1 {
       margin-bottom: 28px;
       font-weight: 700;
@@ -68,6 +78,7 @@
       margin-bottom: 14px;
     }
 
+
     .main-filters button {
       background: white;
       padding: 11px 22px;
@@ -80,12 +91,13 @@
     }
 
 
-    /* MAISON */
+    /* 🟣 MAISON */
 
     #main-maison {
       border: 2px solid var(--maison);
       color: var(--maison);
     }
+
 
     #main-maison:hover,
     #main-maison.active {
@@ -94,12 +106,13 @@
     }
 
 
-    /* VÊTEMENTS */
+    /* 🟡 VÊTEMENTS */
 
     #main-vetements {
       border: 2px solid var(--vetements);
       color: #8A6547;
     }
+
 
     #main-vetements:hover,
     #main-vetements.active {
@@ -120,9 +133,11 @@
       margin: 0 auto 32px;
     }
 
+
     .sub-filters.visible {
       display: flex;
     }
+
 
     .sub-filters button {
       background: white;
@@ -135,12 +150,13 @@
     }
 
 
-    /* SOUS-FILTRES MAISON */
+    /* 🟣 SOUS-FILTRES MAISON */
 
     #maison-filters button {
       border: 1px solid var(--maison);
       color: var(--maison);
     }
+
 
     #maison-filters button:hover,
     #maison-filters button.active {
@@ -149,12 +165,13 @@
     }
 
 
-    /* SOUS-FILTRES VÊTEMENTS */
+    /* 🟡 SOUS-FILTRES VÊTEMENTS */
 
     #vetements-filters button {
       border: 1px solid var(--vetements);
       color: #8A6547;
     }
+
 
     #vetements-filters button:hover,
     #vetements-filters button.active {
@@ -173,11 +190,13 @@
       padding-bottom: 50px;
     }
 
+
     .grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
+
 
     .item {
       background: white;
@@ -194,12 +213,14 @@
         box-shadow 0.15s ease;
     }
 
+
     .item:hover {
       transform: translateY(-2px);
 
       box-shadow:
         0 7px 20px rgba(0, 0, 0, 0.12);
     }
+
 
     .item img {
       width: 100%;
@@ -208,9 +229,11 @@
       display: block;
     }
 
+
     .content {
       padding: 16px;
     }
+
 
     .price {
       font-size: 21px;
@@ -219,17 +242,17 @@
     }
 
 
-    /* PRIX MAISON */
+    /* 🟣 PRIX MAISON */
 
     .item.maison .price {
       color: var(--maison);
     }
 
 
-    /* PRIX VÊTEMENTS */
+    /* 🟡 PRIX VÊTEMENTS */
 
     .item.vetements .price {
-      color: #E6A85F;
+      color: var(--vetements-prix);
     }
 
 
@@ -265,6 +288,7 @@
       padding: 20px;
     }
 
+
     .modal-content {
       background: white;
 
@@ -282,11 +306,13 @@
       color: #000000;
     }
 
+
     .modal-content h3 {
       margin-top: 0;
       margin-bottom: 14px;
       color: #000000;
     }
+
 
     .modal-content p {
       font-family:
@@ -300,6 +326,7 @@
 
       margin: 0 0 8px;
     }
+
 
     .whatsapp-button {
       display: inline-block;
@@ -318,6 +345,7 @@
 
       font-weight: 700;
     }
+
 
     .close-button {
       margin-top: 14px;
@@ -346,51 +374,62 @@
         padding: 28px 12px 14px;
       }
 
+
       h1 {
         font-size: 30px;
         color: #FFFFFF;
       }
+
 
       .main-filters {
         gap: 7px;
         margin-bottom: 11px;
       }
 
+
       .main-filters button {
         padding: 9px 14px;
         font-size: 13px;
       }
+
 
       .sub-filters {
         gap: 6px;
         margin-bottom: 22px;
       }
 
+
       .sub-filters button {
         padding: 7px 10px;
         font-size: 11px;
       }
 
+
       .container {
         width: 94%;
       }
+
 
       .grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
       }
 
+
       .content {
         padding: 10px;
       }
+
 
       .price {
         font-size: 17px;
       }
 
+
       .description {
         font-size: 12px;
       }
+
 
       .item {
         border-radius: 16px;
@@ -409,11 +448,13 @@
   <header>
 
     <h1>
-      VIDE MAISON - BUSSIGNY
+      VIDE MAISON &amp; DRESSING
     </h1>
 
 
-    <!-- FILTRES PRINCIPAUX -->
+    <!-- =========================
+         FILTRES PRINCIPAUX
+         ========================= -->
 
     <div class="main-filters">
 
@@ -436,88 +477,68 @@
     </div>
 
 
-    <!-- SOUS-FILTRES MAISON -->
+    <!-- 🟣 SOUS-FILTRES MAISON -->
 
     <div
       class="sub-filters visible"
       id="maison-filters"
     >
 
-      <button
-        onclick="filterCategory('cuisine', this)"
-      >
+      <button onclick="filterCategory('cuisine', this)">
         Cuisine
       </button>
 
 
-      <button
-        onclick="filterCategory('salon', this)"
-      >
+      <button onclick="filterCategory('salon', this)">
         Déco / salon
       </button>
 
 
-      <button
-        onclick="filterCategory('chambre', this)"
-      >
+      <button onclick="filterCategory('chambre', this)">
         Chambre
       </button>
 
 
-      <button
-        onclick="filterCategory('salle-de-bain', this)"
-      >
+      <button onclick="filterCategory('salle-de-bain', this)">
         Salle de bain
       </button>
 
 
-      <button
-        onclick="filterCategory('divers', this)"
-      >
+      <button onclick="filterCategory('divers', this)">
         Divers
       </button>
 
     </div>
 
 
-    <!-- SOUS-FILTRES VÊTEMENTS -->
+    <!-- 🟡 SOUS-FILTRES VÊTEMENTS -->
 
     <div
       class="sub-filters"
       id="vetements-filters"
     >
 
-      <button
-        onclick="filterCategory('tee-shirts', this)"
-      >
+      <button onclick="filterCategory('tee-shirts', this)">
         Tee-shirts
       </button>
 
 
-      <button
-        onclick="filterCategory('pulls-hoodies', this)"
-      >
+      <button onclick="filterCategory('pulls-hoodies', this)">
         Pulls / hoodies
       </button>
 
 
-      <button
-        onclick="filterCategory('manteaux-vestes', this)"
-      >
+      <button onclick="filterCategory('manteaux-vestes', this)">
         Manteaux / vestes
       </button>
 
 
-      <button
-        onclick="filterCategory('accessoires', this)"
-      >
+      <button onclick="filterCategory('accessoires', this)">
         Accessoires
       </button>
 
 
-      <button
-        onclick="filterCategory('chaussures', this)"
-      >
+      <button onclick="filterCategory('chaussures', this)">
         Chaussures
       </button>
 
@@ -538,7 +559,9 @@
 
 
 
-  <!-- FENÊTRE CONTACT -->
+  <!-- =========================
+       FENÊTRE CONTACT
+       ========================= -->
 
   <div
     class="modal"
@@ -590,14 +613,16 @@
        NUMÉRO WHATSAPP
        ========================= */
 
-    const phoneNumber =
-      "41782207274";
+    const phoneNumber = "41782207274";
 
 
 
-    /* =========================
-       ARTICLES
-       ========================= */
+    /* =========================================================
+       🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣
+                 MAISON                 
+       🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣
+       ========================================================= */
+
 
     const items = [
 
@@ -607,8 +632,7 @@
         price: "5 CHF",
         description: "Affiches en verre de décoration avec corde - neuves",
         section: "maison",
-        category: ["salon", "chambre", "divers"],
-        sold: false
+        category: ["salon", "chambre", "divers"]
       },
 
 
@@ -617,8 +641,7 @@
         price: "5 CHF",
         description: "Assiettes argentées - neuves",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -627,8 +650,7 @@
         price: "10 CHF",
         description: "Balance - neuve",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -637,8 +659,7 @@
         price: "5 CHF",
         description: "Boîte à mouchoir",
         section: "maison",
-        category: ["divers"],
-        sold: false
+        category: ["divers"]
       },
 
 
@@ -647,8 +668,7 @@
         price: "2 CHF",
         description: "Boîte à fromage",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -657,8 +677,7 @@
         price: "15 CHF",
         description: "Bougeoir en véritable bois (sans les bougies)",
         section: "maison",
-        category: ["divers", "salon", "chambre"],
-        sold: false
+        category: ["divers", "salon", "chambre"]
       },
 
 
@@ -667,8 +686,7 @@
         price: "10 CHF",
         description: "Bouilloire",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -677,8 +695,7 @@
         price: "5 CHF",
         description: "Shakers Bulk x2 - neufs",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -687,8 +704,7 @@
         price: "10 CHF",
         description: "Cadre photo noir design",
         section: "maison",
-        category: ["divers", "chambre", "salon"],
-        sold: false
+        category: ["divers", "chambre", "salon"]
       },
 
 
@@ -697,8 +713,7 @@
         price: "3 CHF",
         description: "Calendrier",
         section: "maison",
-        category: ["chambre", "divers"],
-        sold: false
+        category: ["chambre", "divers"]
       },
 
 
@@ -707,8 +722,7 @@
         price: "10 CHF",
         description: "Boîte céramique et set à fromage de 4 pics - neuf",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -717,8 +731,7 @@
         price: "5 CHF",
         description: "Lot de 6 coquetiers - neuf",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -727,8 +740,7 @@
         price: "5 CHF",
         description: "Etagère suspendue corde porte plante ou déco en bois",
         section: "maison",
-        category: ["divers"],
-        sold: false
+        category: ["divers"]
       },
 
 
@@ -737,8 +749,7 @@
         price: "10 CHF",
         description: "Mini drone Parrot - batterie à changer",
         section: "maison",
-        category: ["divers"],
-        sold: false
+        category: ["divers"]
       },
 
 
@@ -747,8 +758,7 @@
         price: "10 CHF",
         description: "Accessoire Dyson, adaptateur angles et surfaces éloignées - neuf",
         section: "maison",
-        category: ["salon", "divers"],
-        sold: false
+        category: ["salon", "divers"]
       },
 
 
@@ -757,8 +767,7 @@
         price: "2 CHF",
         description: "Éponges en silicone de cuisine - neuves",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -767,8 +776,7 @@
         price: "2 CHF",
         description: "Bac à glaçons ananas réutilisables - neuf",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -777,8 +785,7 @@
         price: "10 CHF",
         description: "Housses de valise x5 - neuves",
         section: "maison",
-        category: ["divers"],
-        sold: false
+        category: ["divers"]
       },
 
 
@@ -787,8 +794,7 @@
         price: "5 CHF",
         description: "Mini potager de 4 pots en verre",
         section: "maison",
-        category: ["divers"],
-        sold: false
+        category: ["divers"]
       },
 
 
@@ -797,8 +803,7 @@
         price: "10 CHF",
         description: "Appareil Tefal à faire des jus - neuf",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -807,8 +812,7 @@
         price: "5 CHF",
         description: "Carnets, jolis blocs-notes - neufs",
         section: "maison",
-        category: ["divers"],
-        sold: false
+        category: ["divers"]
       },
 
 
@@ -817,8 +821,7 @@
         price: "10 CHF",
         description: "Machine à pâtes - neuve",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -827,28 +830,25 @@
         price: "25 CHF",
         description: "Manette Google Stadia bluetooth - neuve",
         section: "maison",
-        category: ["divers"],
-        sold: false
+        category: ["divers"]
       },
 
-      
+
       {
         image: "images/palettes.jpg",
         price: "30 CHF",
         description: "Mauble console bar en palette et bois massif",
         section: "maison",
-        category: ["cuisine","chambre", "divers"],
-        sold: false
+        category: ["cuisine", "chambre", "divers"]
       },
 
-      
+
       {
         image: "images/papiers cuisine.jpg",
         price: "10 CHF",
         description: "Distributeur et coupe-film/papiers de cuisine - neuf",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -857,8 +857,7 @@
         price: "5 CHF",
         description: "Pieds de lit 12 cm",
         section: "maison",
-        category: ["chambre", "divers"],
-        sold: false
+        category: ["chambre", "divers"]
       },
 
 
@@ -867,8 +866,7 @@
         price: "5 CHF",
         description: "Plat en forme de poisson",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -877,8 +875,7 @@
         price: "2 CHF",
         description: "Pots en verre et corde",
         section: "maison",
-        category: ["divers"],
-        sold: false
+        category: ["divers"]
       },
 
 
@@ -887,8 +884,7 @@
         price: "10 CHF",
         description: "Machine à saucisson - neuve",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -897,8 +893,7 @@
         price: "20 CHF",
         description: "Valise soute Hauptstadtkoffer XL (70 x 48 x 30 cm)",
         section: "maison",
-        category: ["divers"],
-        sold: false
+        category: ["divers"]
       },
 
 
@@ -907,8 +902,7 @@
         price: "10 CHF",
         description: "Valise soute en tissu (62 x 43 x 26 cm) - abimée",
         section: "maison",
-        category: ["divers"],
-        sold: false
+        category: ["divers"]
       },
 
 
@@ -917,8 +911,7 @@
         price: "20 CHF",
         description: "Lot de 4 verres design, cocktails - neufs",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -927,8 +920,7 @@
         price: "5 CHF",
         description: "Chopes XL",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
+        category: ["cuisine"]
       },
 
 
@@ -937,23 +929,26 @@
         price: "5 CHF",
         description: "Verres à pied x5",
         section: "maison",
-        category: ["cuisine"],
-        sold: false
-      }
+        category: ["cuisine"]
+      },
 
 
-      ==========================================
-      VÊTEMENTS
-      ==========================================
+
+      /* =========================================================
+         🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡
+                  VÊTEMENTS               
+         🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡
+         ========================================================= */
+
 
       {
         image: "images/TS Uniqlo.jpg",
         price: "10 CHF",
         description: "Tee-shirt Uniqlo - Taille XL - coupe oversize légèrement crop",
         section: "vetements",
-        category: ["tee-shirts"],
-        sold: false
+        category: ["tee-shirts"]
       }
+
 
     ];
 
@@ -980,20 +975,14 @@
           "available-items"
         );
 
+
       availableContainer.innerHTML = "";
 
 
       items.forEach(item => {
 
 
-        /* MASQUER LES VENDUS */
-
-        if (item.sold) {
-          return;
-        }
-
-
-        /* FILTRE SECTION */
+        /* FILTRE MAISON / VÊTEMENTS */
 
         if (
           item.section !== currentSection
@@ -1014,7 +1003,7 @@
         }
 
 
-        /* CRÉATION CARTE */
+        /* CRÉATION DE LA CARTE */
 
         const card =
           document.createElement("div");
@@ -1061,6 +1050,7 @@
 
     /* =========================
        FILTRE PRINCIPAL
+       MAISON / VÊTEMENTS
        ========================= */
 
     function filterSection(section) {
@@ -1098,7 +1088,7 @@
 
 
 
-      /* CACHER TOUS LES SOUS-FILTRES */
+      /* CACHER LES SOUS-FILTRES */
 
       document
         .getElementById(
@@ -1117,7 +1107,7 @@
 
 
 
-      /* RETIRER SOUS-CATÉGORIE ACTIVE */
+      /* ENLEVER SOUS-CATÉGORIE ACTIVE */
 
       document
         .querySelectorAll(
@@ -1132,7 +1122,7 @@
 
 
 
-      /* AFFICHER LA BONNE LIGNE */
+      /* 🟣 AFFICHER LES FILTRES MAISON */
 
       if (section === "maison") {
 
@@ -1145,6 +1135,9 @@
 
       }
 
+
+
+      /* 🟡 AFFICHER LES FILTRES VÊTEMENTS */
 
       if (section === "vetements") {
 
@@ -1165,7 +1158,7 @@
 
 
     /* =========================
-       SOUS-CATÉGORIE
+       SOUS-CATÉGORIES
        ========================= */
 
     function filterCategory(
@@ -1285,7 +1278,9 @@
 
 
 
-    /* AFFICHAGE INITIAL */
+    /* =========================
+       AFFICHAGE INITIAL
+       ========================= */
 
     filterSection("maison");
 
