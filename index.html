@@ -539,10 +539,6 @@
       id="maison-filters"
     >
 
-      <button onclick="filterCategory('chambre', this)">
-        Chambre
-      </button>
-
       <button onclick="filterCategory('cuisine', this)">
         Cuisine
       </button>
@@ -551,12 +547,16 @@
         Déco / salon
       </button>
 
-      <button onclick="filterCategory('divers', this)">
-        Divers
+      <button onclick="filterCategory('chambre', this)">
+        Chambre
       </button>
 
       <button onclick="filterCategory('salle-de-bain', this)">
         Salle de bain
+      </button>
+
+      <button onclick="filterCategory('divers', this)">
+        Divers
       </button>
 
     </div>
@@ -569,12 +569,12 @@
       id="vetements-femmes-filters"
     >
 
-      <button onclick="filterCategory('tee-shirts', this)">
-        Tee-shirts
-      </button>
-
       <button onclick="filterCategory('tops-crops', this)">
         Tops et crops
+      </button>
+
+      <button onclick="filterCategory('tee-shirts', this)">
+        Tee-shirts
       </button>
 
       <button onclick="filterCategory('pulls-hoodies', this)">
@@ -997,16 +997,16 @@
         image: "images/airpods.png",
         price: "30 CHF",
         description: "Apple AirPods 1re génération avec boîtier de charge et coque de protection",
-        section: ["maison"],
-        category: ["divers"]
+        section: ["maison", "vetements-femmes", "vetements-hommes"],
+        category: ["divers", "accessoires-bijoux"]
       },
 
       {
         image: "images/libtech.png",
         price: "300 CHF",
         description: "Planche de snowboard Libtech 156 skate/banana comme neuve, utilisée 2 fois ! (toujours en vente neuve à 600.-)",
-        section: ["maison"],
-        category: ["divers"]
+        section: ["maison", "vetements-femmes", "vetements-hommes"],
+        category: ["divers", "accessoires-bijoux"]
       },
 
       {
@@ -1984,21 +1984,66 @@
       availableContainer.innerHTML = "";
 
 
-      const categoryLabels = {
-        "chambre": "Chambre",
-        "cuisine": "Cuisine",
-        "salon": "Déco / salon",
-        "divers": "Divers",
-        "salle-de-bain": "Salle de bain",
-        "tee-shirts": "Tee-shirts",
-        "tops-crops": "Tops et crops",
-        "pulls-hoodies": "Pulls, hoodies",
-        "manteaux-vestes": "Manteaux, vestes",
-        "pantalons-shorts": "Pantalons, shorts",
-        "chaussures": "Chaussures",
-        "accessoires-bijoux": "Accessoires, bijoux"
-      };
+      /* =========================
+         ORDRE DES CATÉGORIES
+         ========================= */
 
+      const maisonOrder = [
+        "chambre",
+        "cuisine",
+        "salon",
+        "divers",
+        "salle-de-bain"
+      ];
+
+
+      /* 🩷 FEMMES */
+
+      const femmesOrder = [
+        "tops-crops",
+        "tee-shirts",
+        "pulls-hoodies",
+        "manteaux-vestes",
+        "pantalons-shorts",
+        "chaussures",
+        "accessoires-bijoux"
+      ];
+
+
+      /* 🟡 HOMMES */
+
+      const hommesOrder = [
+        "tee-shirts",
+        "pulls-hoodies",
+        "manteaux-vestes",
+        "pantalons-shorts",
+        "chaussures",
+        "accessoires-bijoux"
+      ];
+
+
+      let categoryOrder;
+
+
+      if (currentSection === "vetements-femmes") {
+
+        categoryOrder = femmesOrder;
+
+      } else if (currentSection === "vetements-hommes") {
+
+        categoryOrder = hommesOrder;
+
+      } else {
+
+        categoryOrder = maisonOrder;
+
+      }
+
+
+
+      /* =========================
+         FILTRAGE DES ARTICLES
+         ========================= */
 
       const filteredItems =
         items
@@ -2026,46 +2071,63 @@
             return true;
 
           })
+
           .sort((a, b) => {
 
-            const aCategory =
-              a.category
-                .map(category => categoryLabels[category] || category)
-                .sort((x, y) =>
-                  x.localeCompare(
-                    y,
-                    "fr",
-                    { sensitivity: "base" }
+
+            /*
+              Si une sous-catégorie est sélectionnée :
+              ordre alphabétique des descriptions.
+            */
+
+            if (currentCategory !== null) {
+
+              return a.description.localeCompare(
+                b.description,
+                "fr",
+                { sensitivity: "base" }
+              );
+
+            }
+
+
+            /*
+              Sinon :
+              ordre des catégories défini ci-dessus,
+              puis ordre alphabétique des descriptions.
+            */
+
+            const getCategoryPosition = item => {
+
+              const positions =
+                item.category
+                  .map(category =>
+                    categoryOrder.indexOf(category)
                   )
-                )[0];
+                  .filter(position =>
+                    position !== -1
+                  );
 
 
-            const bCategory =
-              b.category
-                .map(category => categoryLabels[category] || category)
-                .sort((x, y) =>
-                  x.localeCompare(
-                    y,
-                    "fr",
-                    { sensitivity: "base" }
-                  )
-                )[0];
-
-
-            if (currentCategory === null) {
-
-              const categoryComparison =
-                aCategory.localeCompare(
-                  bCategory,
-                  "fr",
-                  { sensitivity: "base" }
-                );
-
-
-              if (categoryComparison !== 0) {
-                return categoryComparison;
+              if (positions.length === 0) {
+                return 999;
               }
 
+
+              return Math.min(...positions);
+
+            };
+
+
+            const aPosition =
+              getCategoryPosition(a);
+
+            const bPosition =
+              getCategoryPosition(b);
+
+
+            if (aPosition !== bPosition) {
+              return aPosition - bPosition;
             }
 
 
