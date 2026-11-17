@@ -539,6 +539,10 @@
       id="maison-filters"
     >
 
+      <button onclick="filterCategory('chambre', this)">
+        Chambre
+      </button>
+
       <button onclick="filterCategory('cuisine', this)">
         Cuisine
       </button>
@@ -547,16 +551,12 @@
         Déco / salon
       </button>
 
-      <button onclick="filterCategory('chambre', this)">
-        Chambre
+      <button onclick="filterCategory('divers', this)">
+        Divers
       </button>
 
       <button onclick="filterCategory('salle-de-bain', this)">
         Salle de bain
-      </button>
-
-      <button onclick="filterCategory('divers', this)">
-        Divers
       </button>
 
     </div>
@@ -585,12 +585,16 @@
         Manteaux, vestes
       </button>
 
-      <button onclick="filterCategory('accessoires', this)">
-        Accessoires
+      <button onclick="filterCategory('pantalons-shorts', this)">
+        Pantalons, shorts
       </button>
 
       <button onclick="filterCategory('chaussures', this)">
         Chaussures
+      </button>
+
+      <button onclick="filterCategory('accessoires-bijoux', this)">
+        Accessoires, bijoux
       </button>
 
     </div>
@@ -607,10 +611,6 @@
         Tee-shirts
       </button>
 
-      <button onclick="filterCategory('tops-crops', this)">
-        Tops et crops
-      </button>
-
       <button onclick="filterCategory('pulls-hoodies', this)">
         Pulls, hoodies
       </button>
@@ -619,12 +619,16 @@
         Manteaux, vestes
       </button>
 
-      <button onclick="filterCategory('accessoires', this)">
-        Accessoires
+      <button onclick="filterCategory('pantalons-shorts', this)">
+        Pantalons, shorts
       </button>
 
       <button onclick="filterCategory('chaussures', this)">
         Chaussures
+      </button>
+
+      <button onclick="filterCategory('accessoires-bijoux', this)">
+        Accessoires, bijoux
       </button>
 
     </div>
@@ -989,29 +993,29 @@
         category: ["cuisine"]
       },
 
-{
-  image: "images/airpods.png",
-  price: "30 CHF",
-  description: "Apple AirPods 1re génération avec boîtier de charge et coque de protection",
-  section: ["maison", "vetements-femmes", "vetements-hommes"],
-  category: ["divers", "accessoires"]
-},
+      {
+        image: "images/airpods.png",
+        price: "30 CHF",
+        description: "Apple AirPods 1re génération avec boîtier de charge et coque de protection",
+        section: ["maison", "vetements-femmes", "vetements-hommes"],
+        category: ["divers", "accessoires-bijoux"]
+      },
 
-{
-  image: "images/libtech.png",
-  price: "300 CHF",
-  description: "Planche de snowboard Libtech 156 skate/banana comme neuve, utilisée 2 fois ! (toujours en vente neuve à 600.-)",
-  section: ["maison", "vetements-femmes", "vetements-hommes"],
-  category: ["divers", "accessoires"]
-},
+      {
+        image: "images/libtech.png",
+        price: "300 CHF",
+        description: "Planche de snowboard Libtech 156 skate/banana comme neuve, utilisée 2 fois ! (toujours en vente neuve à 600.-)",
+        section: ["maison", "vetements-femmes", "vetements-hommes"],
+        category: ["divers", "accessoires-bijoux"]
+      },
 
-{
-  image: "images/salon.jpeg",
-  price: "50 CHF",
-  description: "Salon de jardin en résine 3 places + méridienne, table basse avec rangement. Salon 205 x 74 cm et 146 x 73 cm (méridienne)",
-  section: "maison",
-  category: ["divers"]
-},
+      {
+        image: "images/salon.jpeg",
+        price: "50 CHF",
+        description: "Salon de jardin en résine 3 places + méridienne, table basse avec rangement. Salon 205 x 74 cm et 146 x 73 cm (méridienne)",
+        section: "maison",
+        category: ["divers"]
+      },
 
 
 
@@ -1092,509 +1096,511 @@
       },
 
       {
-  image: "images/CT Asos.png",
-  price: "3 CHF",
-  description: "Crop top tout simple Asos - taille 36",
-  section: "vetements-femmes",
-  category: ["tops-crops"]
-},
-
-{
-  image: "images/CT Asym MSG.png",
-  price: "5 CHF",
-  description: "Crop top asymétrique Missguided - neuf avec étiquette - taille M",
-  section: "vetements-femmes",
-  category: ["tops-crops"]
-},
-
-{
-  image: "images/CT Bershka kaki.png",
-  price: "5 CHF",
-  description: "Crop top croisé Bershka kaki - taille S",
-  section: "vetements-femmes",
-  category: ["tops-crops"]
-},
-
-{
-  image: "images/CT body Asos.png",
-  price: "8 CHF",
-  description: "Body croisé Asos - neuf - taille 34",
-  section: "vetements-femmes",
-  category: ["tops-crops"]
-},
-
-{
-  image: "images/CT Body MSG.png",
-  price: "3 CHF",
-  description: "Body Missguided - neuf - taille 36",
-  section: "vetements-femmes",
-  category: ["tops-crops"]
-},
-
-{
-  image: "images/CT H&M.png",
-  price: "3 CHF",
-  description: "Top sans manches col montant H&M - taille S",
-  section: "vetements-femmes",
-  category: ["tops-crops"]
-},
-
-{
-  image: "images/CT Maille.png",
-  price: "5 CHF",
-  description: "Crop top en maille Pull&Bear - neuf - taille S",
-  section: "vetements-femmes",
-  category: ["tops-crops"]
-},
-
-{
-  image: "images/CT Mango.png",
-  price: "5 CHF",
-  description: "Top sans manches Zara - taille L",
-  section: "vetements-femmes",
-  category: ["tops-crops"]
-},
-
-{
-  image: "images/CT PLT trou.png",
-  price: "5 CHF",
-  description: "Crop top manches longues avec petites ouvertures PrettyLittleThings - taille 36",
-  section: "vetements-femmes",
-  category: ["tops-crops"]
-},
-
-{
-  image: "images/CT Poche.png",
-  price: "5 CHF",
-  description: "Top original avec poche - taille M",
-  section: "vetements-femmes",
-  category: ["tops-crops"]
-},
-
-{
-  image: "images/CT Primark.png",
-  price: "3 CHF",
-  description: "Top sans manches col montant Primark - neuf avec étiquette - taille S",
-  section: "vetements-femmes",
-  category: ["tops-crops"]
-},
-
-{
-  image: "images/PH ADB.png",
-  price: "10 CHF",
-  description: "Pull à capuche simple l'art du basic - taille 0",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH asos orange.png",
-  price: "25 CHF",
-  description: "Pull Asos avec bandes oranges - taille 36/38",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH beige coutures.png",
-  price: "35 CHF",
-  description: "Pull beige avec coutures blanches - taille XS",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH beige zara.png",
-  price: "20 CHF",
-  description: "Pull automnal Zara - taille S",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH beige.png",
-  price: "10 CHF",
-  description: "Pull simple beige Only - taille M",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH blanc doux.png",
-  price: "20 CHF",
-  description: "Pull blanc tout doux - TU",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH blanc maille.png",
-  price: "20 CHF",
-  description: "Pull blanc en maille épaisse Asos design - taille 38",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH brooklyn.png",
-  price: "10 CHF",
-  description: "Pull à capuche Brooklyn Zara - taille S",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH col roule gris.png",
-  price: "20 CHF",
-  description: "Pull col roulé gris H&M - taille M",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH gris clair v.png",
-  price: "20 CHF",
-  description: "Pull gris clair doux col V - taille M",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH gris fonce v.png",
-  price: "20 CHF",
-  description: "Pull gris foncé col V - TU",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH kooples zip.png",
-  price: "40 CHF",
-  description: "Pull zippé The Kooples - taille M",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH noir simple.png",
-  price: "10 CHF",
-  description: "Pull noir tout simple - TU",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH rose cashemire.png",
-  price: "70 CHF",
-  description: "Pull rose clair en cachemire Kujten - taille S",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH roxy col roule.png",
-  price: "30 CHF",
-  description: "Pull col roulé en mailles épaisses Roxy - taille M",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH zara trous.png",
-  price: "15 CHF",
-  description: "Pull Zara ajouré - taille M",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH ZV.png",
-  price: "50 CHF",
-  description: "Pull Zadig & Voltaire doux - taille S/M",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
- {
-  image: "images/TS jaune.png",
-  price: "3 CHF",
-  description: "Tee-shirt jaune - TU",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["tee-shirts"]
-},
-
-{
-  image: "images/TS mariniere.png",
-  price: "8 CHF",
-  description: "Tee-shirt marinière effet éponge Zara - taille S",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["tee-shirts"]
-},
-
- {
-  image: "images/TS Eponge.png",
-  price: "20 CHF",
-  description: "Tee-shirt effet éponge Cindy Bruna x Majestic Filatures - taille M",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["tee-shirts"]
-},
+        image: "images/CT Asos.png",
+        price: "3 CHF",
+        description: "Crop top tout simple Asos - taille 36",
+        section: "vetements-femmes",
+        category: ["tops-crops"]
+      },
 
       {
-  image: "images/V blazer noir.png",
-  price: "10 CHF",
-  description: "Blazer noir léger et long Zara - taille S",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V chinee.png",
-  price: "15 CHF",
-  description: "Veste chinée Pull&Bear - taille S",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V croisee grise.png",
-  price: "5 CHF",
-  description: "Veste croisée grise - TU",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V croisee moumoutte.png",
-  price: "10 CHF",
-  description: "Veste croisée moumoutte Missguided - taille 38",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V cuir gris.png",
-  price: "35 CHF",
-  description: "Veste en cuir grise Mango - taille S",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V cuir noir.png",
-  price: "35 CHF",
-  description: "Veste en cuir noire sans manche et moumoutte Bershka - taille XS",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V cuir.png",
-  price: "50 CHF",
-  description: "Veste en cuir léger Nafnaf - taille 38",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V imper.png",
-  price: "10 CHF",
-  description: "Imperméable TopShop - taille 34",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V jaune.png",
-  price: "15 CHF",
-  description: "Veste de blazer jaune Bershka - taille S - neuve avec étiquette",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V Kooples kaki.png",
-  price: "70 CHF",
-  description: "Manteau The Kooples kaki et cuir avec rangement de la capuche dans le col - taille S",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V moumoutte.png",
-  price: "30 CHF",
-  description: "Veste moumoutte - TU",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V noire croisee.png",
-  price: "10 CHF",
-  description: "Veste noire croisée - taille 36",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V noire jean.png",
-  price: "25 CHF",
-  description: "Veste noire en jean - taille XXS (taille grand)",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V rayee.png",
-  price: "5 CHF",
-  description: "Veste de blazer à rayures H&M - taille 34",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V rose.png",
-  price: "45 CHF",
-  description: "Veste oversize rose bi-matières (veste en jean et manches + poches en nylon) - taille 34",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V roxy.png",
-  price: "30 CHF",
-  description: "Veste style surfeur Roxy - taille S",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V stradivarius.png",
-  price: "15 CHF",
-  description: "Veste oversize à boutons Stradivarius - taille S",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V verte.png",
-  price: "10 CHF",
-  description: "Veste de blazer verte Bershka - taille M",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V zara perou.png",
-  price: "40 CHF",
-  description: "Manteau Zara knit épais - taille S (taille grand) - neuf",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V zara rayures.png",
-  price: "20 CHF",
-  description: "Manteau Zara original - taille M - neuf",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-            {
-  image: "images/AC echarpe beige.png",
-  price: "5 CHF",
-  description: "Écharpe beige simple - neuve",
-  section: ["vetements-femmes"],
-  category: ["accessoires"]
-},
+        image: "images/CT Asym MSG.png",
+        price: "5 CHF",
+        description: "Crop top asymétrique Missguided - neuf avec étiquette - taille M",
+        section: "vetements-femmes",
+        category: ["tops-crops"]
+      },
 
       {
-  image: "images/V trench kaki.png",
-  price: "40 CHF",
-  description: "Trench kaki léger - taille 34 - neuf",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/PH col roule marron.png",
-  price: "30 CHF",
-  description: "Pull col roulé marron avec 10% de cachemire, H&M - taille L",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH gris zara.png",
-  price: "15 CHF",
-  description: "Pull gris Zara - taille S",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH primark v.png",
-  price: "5 CHF",
-  description: "Pull col V Primark - taille M",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/TS stepart.png",
-  price: "10 CHF",
-  description: "Tee-shirt Stepart en coton et bambou - taille S",
-  section: "vetements-femmes",
-  category: ["tee-shirts"]
-},
-
-{
-  image: "images/V bomber beige.png",
-  price: "25 CHF",
-  description: "Bomber beige Newlook - taille 12/S",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V fluide noire.png",
-  price: "5 CHF",
-  description: "Veste fluide noire H&M - taille 34",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V sans manches blanche.png",
-  price: "5 CHF",
-  description: "Veste sans manches blanche - taille 8/S",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
-
-{
-  image: "images/V sans manches Zara.png",
-  price: "15 CHF",
-  description: "Veste sans manche noire Zara - taille S",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
+        image: "images/CT Bershka kaki.png",
+        price: "5 CHF",
+        description: "Crop top croisé Bershka kaki - taille S",
+        section: "vetements-femmes",
+        category: ["tops-crops"]
+      },
 
       {
-  image: "images/V cuir sans manche beige.png",
-  price: "35 CHF",
-  description: "Veste en cuir beige sans manche et moumoutte Bershka - taille XS",
-  section: "vetements-femmes",
-  category: ["manteaux-vestes"]
-},
+        image: "images/CT body Asos.png",
+        price: "8 CHF",
+        description: "Body croisé Asos - neuf - taille 34",
+        section: "vetements-femmes",
+        category: ["tops-crops"]
+      },
 
-{
-  image: "images/PH epicerie jaune.png",
-  price: "20 CHF",
-  description: "Pull jaune Épicerie - taille S/M",
-  section: "vetements-femmes",
-  category: ["pulls-hoodies"]
-},
-      
+      {
+        image: "images/CT Body MSG.png",
+        price: "3 CHF",
+        description: "Body Missguided - neuf - taille 36",
+        section: "vetements-femmes",
+        category: ["tops-crops"]
+      },
+
+      {
+        image: "images/CT H&M.png",
+        price: "3 CHF",
+        description: "Top sans manches col montant H&M - taille S",
+        section: "vetements-femmes",
+        category: ["tops-crops"]
+      },
+
+      {
+        image: "images/CT Maille.png",
+        price: "5 CHF",
+        description: "Crop top en maille Pull&Bear - neuf - taille S",
+        section: "vetements-femmes",
+        category: ["tops-crops"]
+      },
+
+      {
+        image: "images/CT Mango.png",
+        price: "5 CHF",
+        description: "Top sans manches Zara - taille L",
+        section: "vetements-femmes",
+        category: ["tops-crops"]
+      },
+
+      {
+        image: "images/CT PLT trou.png",
+        price: "5 CHF",
+        description: "Crop top manches longues avec petites ouvertures PrettyLittleThings - taille 36",
+        section: "vetements-femmes",
+        category: ["tops-crops"]
+      },
+
+      {
+        image: "images/CT Poche.png",
+        price: "5 CHF",
+        description: "Top original avec poche - taille M",
+        section: "vetements-femmes",
+        category: ["tops-crops"]
+      },
+
+      {
+        image: "images/CT Primark.png",
+        price: "3 CHF",
+        description: "Top sans manches col montant Primark - neuf avec étiquette - taille S",
+        section: "vetements-femmes",
+        category: ["tops-crops"]
+      },
+
+      {
+        image: "images/PH ADB.png",
+        price: "10 CHF",
+        description: "Pull à capuche simple l'art du basic - taille 0",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH asos orange.png",
+        price: "25 CHF",
+        description: "Pull Asos avec bandes oranges - taille 36/38",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH beige coutures.png",
+        price: "35 CHF",
+        description: "Pull beige avec coutures blanches - taille XS",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH beige zara.png",
+        price: "20 CHF",
+        description: "Pull automnal Zara - taille S",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH beige.png",
+        price: "10 CHF",
+        description: "Pull simple beige Only - taille M",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH blanc doux.png",
+        price: "20 CHF",
+        description: "Pull blanc tout doux - TU",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH blanc maille.png",
+        price: "20 CHF",
+        description: "Pull blanc en maille épaisse Asos design - taille 38",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH brooklyn.png",
+        price: "10 CHF",
+        description: "Pull à capuche Brooklyn Zara - taille S",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH col roule gris.png",
+        price: "20 CHF",
+        description: "Pull col roulé gris H&M - taille M",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH gris clair v.png",
+        price: "20 CHF",
+        description: "Pull gris clair doux col V - taille M",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH gris fonce v.png",
+        price: "20 CHF",
+        description: "Pull gris foncé col V - TU",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH kooples zip.png",
+        price: "40 CHF",
+        description: "Pull zippé The Kooples - taille M",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH noir simple.png",
+        price: "10 CHF",
+        description: "Pull noir tout simple - TU",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH rose cashemire.png",
+        price: "70 CHF",
+        description: "Pull rose clair en cachemire Kujten - taille S",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH roxy col roule.png",
+        price: "30 CHF",
+        description: "Pull col roulé en mailles épaisses Roxy - taille M",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH zara trous.png",
+        price: "15 CHF",
+        description: "Pull Zara ajouré - taille M",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH ZV.png",
+        price: "50 CHF",
+        description: "Pull Zadig & Voltaire doux - taille S/M",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/TS jaune.png",
+        price: "3 CHF",
+        description: "Tee-shirt jaune - TU",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["tee-shirts"]
+      },
+
+      {
+        image: "images/TS mariniere.png",
+        price: "8 CHF",
+        description: "Tee-shirt marinière effet éponge Zara - taille S",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["tee-shirts"]
+      },
+
+      {
+        image: "images/TS Eponge.png",
+        price: "20 CHF",
+        description: "Tee-shirt effet éponge Cindy Bruna x Majestic Filatures - taille M",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["tee-shirts"]
+      },
+
+      {
+        image: "images/V blazer noir.png",
+        price: "10 CHF",
+        description: "Blazer noir léger et long Zara - taille S",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V chinee.png",
+        price: "15 CHF",
+        description: "Veste chinée Pull&Bear - taille S",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V croisee grise.png",
+        price: "5 CHF",
+        description: "Veste croisée grise - TU",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V croisee moumoutte.png",
+        price: "10 CHF",
+        description: "Veste croisée moumoutte Missguided - taille 38",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V cuir gris.png",
+        price: "35 CHF",
+        description: "Veste en cuir grise Mango - taille S",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V cuir noir.png",
+        price: "35 CHF",
+        description: "Veste en cuir noire sans manche et moumoutte Bershka - taille XS",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V cuir.png",
+        price: "50 CHF",
+        description: "Veste en cuir léger Nafnaf - taille 38",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V imper.png",
+        price: "10 CHF",
+        description: "Imperméable TopShop - taille 34",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V jaune.png",
+        price: "15 CHF",
+        description: "Veste de blazer jaune Bershka - taille S - neuve avec étiquette",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V Kooples kaki.png",
+        price: "70 CHF",
+        description: "Manteau The Kooples kaki et cuir avec rangement de la capuche dans le col - taille S",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V moumoutte.png",
+        price: "30 CHF",
+        description: "Veste moumoutte - TU",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V noire croisee.png",
+        price: "10 CHF",
+        description: "Veste noire croisée - taille 36",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V noire jean.png",
+        price: "25 CHF",
+        description: "Veste noire en jean - taille XXS (taille grand)",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V rayee.png",
+        price: "5 CHF",
+        description: "Veste de blazer à rayures H&M - taille 34",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V rose.png",
+        price: "45 CHF",
+        description: "Veste oversize rose bi-matières (veste en jean et manches + poches en nylon) - taille 34",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V roxy.png",
+        price: "30 CHF",
+        description: "Veste style surfeur Roxy - taille S",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V stradivarius.png",
+        price: "15 CHF",
+        description: "Veste oversize à boutons Stradivarius - taille S",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V verte.png",
+        price: "10 CHF",
+        description: "Veste de blazer verte Bershka - taille M",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V zara perou.png",
+        price: "40 CHF",
+        description: "Manteau Zara knit épais - taille S (taille grand) - neuf",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V zara rayures.png",
+        price: "20 CHF",
+        description: "Manteau Zara original - taille M - neuf",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/AC echarpe beige.png",
+        price: "5 CHF",
+        description: "Écharpe beige simple - neuve",
+        section: ["vetements-femmes"],
+        category: ["accessoires-bijoux"]
+      },
+
+      {
+        image: "images/V trench kaki.png",
+        price: "40 CHF",
+        description: "Trench kaki léger - taille 34 - neuf",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/PH col roule marron.png",
+        price: "30 CHF",
+        description: "Pull col roulé marron avec 10% de cachemire, H&M - taille L",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH gris zara.png",
+        price: "15 CHF",
+        description: "Pull gris Zara - taille S",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH primark v.png",
+        price: "5 CHF",
+        description: "Pull col V Primark - taille M",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/TS stepart.png",
+        price: "10 CHF",
+        description: "Tee-shirt Stepart en coton et bambou - taille S",
+        section: "vetements-femmes",
+        category: ["tee-shirts"]
+      },
+
+      {
+        image: "images/V bomber beige.png",
+        price: "25 CHF",
+        description: "Bomber beige Newlook - taille 12/S",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V fluide noire.png",
+        price: "5 CHF",
+        description: "Veste fluide noire H&M - taille 34",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V sans manches blanche.png",
+        price: "5 CHF",
+        description: "Veste sans manches blanche - taille 8/S",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V sans manches Zara.png",
+        price: "15 CHF",
+        description: "Veste sans manche noire Zara - taille S",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/V cuir sans manche beige.png",
+        price: "35 CHF",
+        description: "Veste en cuir beige sans manche et moumoutte Bershka - taille XS",
+        section: "vetements-femmes",
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/PH epicerie jaune.png",
+        price: "20 CHF",
+        description: "Pull jaune Épicerie - taille S/M",
+        section: "vetements-femmes",
+        category: ["pulls-hoodies"]
+      },
+
+
+
       /* =======================================================================================================================================
          🧡 🧡 🧡 🧡 🧡 🧡 🧡 VÊTEMENTS HOMMES 🧡 🧡 🧡 🧡 🧡 🧡 🧡
          ======================================================================================================================================= */
@@ -1741,214 +1747,214 @@
         category: ["tee-shirts"]
       },
 
-{
-  image: "images/PH acne.png",
-  price: "150 CHF",
-  description: "Hoodie Acne Studios - taille M - neuf",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH AMV.png",
-  price: "20 CHF",
-  description: "Veste oversize American Vintage - TU",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH bash.png",
-  price: "50 CHF",
-  description: "Hoodie Ba&sh écritures noires et verte - taille M",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH bizbee.png",
-  price: "10 CHF",
-  description: "Pull zippé Bizbee - taille XS ",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH blanc.png",
-  price: "20 CHF",
-  description: "Pull oversize blanc Black Palms - taille M/L",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH cpk.png",
-  price: "40 CHF",
-  description: "Pull Cruel Pancake - taille 2",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH essentials jaune.png",
-  price: "70 CHF",
-  description: "Hoodie Essentials jaune pâle - taille L",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH marron.png",
-  price: "20 CHF",
-  description: "Pull marron Pull&Bear - taille M",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH pantone.png",
-  price: "20 CHF",
-  description: "Hoodie Pantone - taille M",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH reclaimed.png",
-  price: "40 CHF",
-  description: "Hoodie Reclaimed vintage jaune fluo clair - taille S",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH seatlle.png",
-  price: "20 CHF",
-  description: "Pull Seattle Subdued - TU",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH SP.png",
-  price: "90 CHF",
-  description: "Hoodie Sweet Pants - taille M - neuf",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH Suspicious.png",
-  price: "60 CHF",
-  description: "Hoodie Suspicious - taille L",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
-
-{
-  image: "images/PH veste marron.png",
-  price: "20 CHF",
-  description: "Veste marron Subdued - taille S",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
+      {
+        image: "images/PH acne.png",
+        price: "150 CHF",
+        description: "Hoodie Acne Studios - taille M - neuf",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
       {
-  image: "images/TS chinatown.png",
-  price: "15 CHF",
-  description: "Tee-shirt Chinatown - taille L",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["tee-shirts"]
-},
+        image: "images/PH AMV.png",
+        price: "20 CHF",
+        description: "Veste oversize American Vintage - TU",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
-{
-  image: "images/TS coca.png",
-  price: "10 CHF",
-  description: "Tee-shirt Coca - taille M",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/PH bash.png",
+        price: "50 CHF",
+        description: "Hoodie Ba&sh écritures noires et verte - taille M",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
-{
-  image: "images/TS Eleven.png",
-  price: "10 CHF",
-  description: "Tee-shirt Eleven - taille XL",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/PH bizbee.png",
+        price: "10 CHF",
+        description: "Pull zippé Bizbee - taille XS ",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
-{
-  image: "images/TS iets.png",
-  price: "20 CHF",
-  description: "Tee-shirt iets - taille S",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/PH blanc.png",
+        price: "20 CHF",
+        description: "Pull oversize blanc Black Palms - taille M/L",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
-{
-  image: "images/TS smiley.png",
-  price: "10 CHF",
-  description: "Tee-shirt Smiley - taille L",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/PH cpk.png",
+        price: "40 CHF",
+        description: "Pull Cruel Pancake - taille 2",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
- {
-  image: "images/V Kooples.png",
-  price: "60 CHF",
-  description: "Veste The Kooples - taille M",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["manteaux-vestes"]
-},
+      {
+        image: "images/PH essentials jaune.png",
+        price: "70 CHF",
+        description: "Hoodie Essentials jaune pâle - taille L",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
- {
-  image: "images/snow1.png",
-  price: "100 CHF",
-  description: "Pantalon de snowboard ample avec protection à la taille - neuf",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["accessoires"]
-},
+      {
+        image: "images/PH marron.png",
+        price: "20 CHF",
+        description: "Pull marron Pull&Bear - taille M",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
-{
-  image: "images/snow2.png",
-  price: "100 CHF",
-  description: "Pantalon de snowboard ample avec réglage à la taille - taille M - neuf",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["accessoires"]
-},
+      {
+        image: "images/PH pantone.png",
+        price: "20 CHF",
+        description: "Hoodie Pantone - taille M",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
-{
-  image: "images/PH AMI.png",
-  price: "180 CHF",
-  description: "Pull AMI - taille M",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["pulls-hoodies"]
-},
+      {
+        image: "images/PH reclaimed.png",
+        price: "40 CHF",
+        description: "Hoodie Reclaimed vintage jaune fluo clair - taille S",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
-{
-  image: "images/TS epais noir.png",
-  price: "10 CHF",
-  description: "Tee-shirt épais noir Zara - taille M",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/PH seatlle.png",
+        price: "20 CHF",
+        description: "Pull Seattle Subdued - TU",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
-{
-  image: "images/TS live fast.png",
-  price: "10 CHF",
-  description: "Tee-shirt oversize Uniqlo Live Fast Live Young - taille XL",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["tee-shirts"]
-},
+      {
+        image: "images/PH SP.png",
+        price: "90 CHF",
+        description: "Hoodie Sweet Pants - taille M - neuf",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
 
-{
-  image: "images/V bomber leger.png",
-  price: "10 CHF",
-  description: "Bomber léger - taille M",
-  section: ["vetements-femmes", "vetements-hommes"],
-  category: ["manteaux-vestes"]
-},
-      
+      {
+        image: "images/PH Suspicious.png",
+        price: "60 CHF",
+        description: "Hoodie Suspicious - taille L",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/PH veste marron.png",
+        price: "20 CHF",
+        description: "Veste marron Subdued - taille S",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/TS chinatown.png",
+        price: "15 CHF",
+        description: "Tee-shirt Chinatown - taille L",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["tee-shirts"]
+      },
+
+      {
+        image: "images/TS coca.png",
+        price: "10 CHF",
+        description: "Tee-shirt Coca - taille M",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["tee-shirts"]
+      },
+
+      {
+        image: "images/TS Eleven.png",
+        price: "10 CHF",
+        description: "Tee-shirt Eleven - taille XL",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["tee-shirts"]
+      },
+
+      {
+        image: "images/TS iets.png",
+        price: "20 CHF",
+        description: "Tee-shirt iets - taille S",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["tee-shirts"]
+      },
+
+      {
+        image: "images/TS smiley.png",
+        price: "10 CHF",
+        description: "Tee-shirt Smiley - taille L",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["tee-shirts"]
+      },
+
+      {
+        image: "images/V Kooples.png",
+        price: "60 CHF",
+        description: "Veste The Kooples - taille M",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["manteaux-vestes"]
+      },
+
+      {
+        image: "images/snow1.png",
+        price: "100 CHF",
+        description: "Pantalon de snowboard ample avec protection à la taille - neuf",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pantalons-shorts"]
+      },
+
+      {
+        image: "images/snow2.png",
+        price: "100 CHF",
+        description: "Pantalon de snowboard ample avec réglage à la taille - taille M - neuf",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pantalons-shorts"]
+      },
+
+      {
+        image: "images/PH AMI.png",
+        price: "180 CHF",
+        description: "Pull AMI - taille M",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["pulls-hoodies"]
+      },
+
+      {
+        image: "images/TS epais noir.png",
+        price: "10 CHF",
+        description: "Tee-shirt épais noir Zara - taille M",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["tee-shirts"]
+      },
+
+      {
+        image: "images/TS live fast.png",
+        price: "10 CHF",
+        description: "Tee-shirt oversize Uniqlo Live Fast Live Young - taille XL",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["tee-shirts"]
+      },
+
+      {
+        image: "images/V bomber leger.png",
+        price: "10 CHF",
+        description: "Bomber léger - taille M",
+        section: ["vetements-femmes", "vetements-hommes"],
+        category: ["manteaux-vestes"]
+      }
+
     ];
 
 
@@ -1978,41 +1984,119 @@
       availableContainer.innerHTML = "";
 
 
-      items.forEach(item => {
+      /*
+        NOMS VISIBLES DES CATÉGORIES
+        Utilisés uniquement pour le tri alphabétique des articles.
+      */
+
+      const categoryLabels = {
+        "chambre": "Chambre",
+        "cuisine": "Cuisine",
+        "salon": "Déco / salon",
+        "divers": "Divers",
+        "salle-de-bain": "Salle de bain",
+        "tee-shirts": "Tee-shirts",
+        "tops-crops": "Tops et crops",
+        "pulls-hoodies": "Pulls, hoodies",
+        "manteaux-vestes": "Manteaux, vestes",
+        "pantalons-shorts": "Pantalons, shorts",
+        "chaussures": "Chaussures",
+        "accessoires-bijoux": "Accessoires, bijoux"
+      };
 
 
-        /* =========================
-           FILTRE SECTION
-           ========================= */
+      /*
+        1. On garde seulement les articles de l'onglet choisi.
+        2. Si une sous-catégorie est choisie, on la filtre.
+        3. On trie d'abord par catégorie, puis par description.
+      */
 
-        const matchesSection =
-          Array.isArray(item.section)
-            ? item.section.includes(currentSection)
-            : item.section === currentSection;
+      const filteredItems =
+        items
+          .filter(item => {
 
-
-        if (!matchesSection) {
-          return;
-        }
-
-
-        /* =========================
-           FILTRE CATÉGORIE
-           ========================= */
-
-        if (
-          currentCategory !== null &&
-          !item.category.includes(
-            currentCategory
-          )
-        ) {
-          return;
-        }
+            const matchesSection =
+              Array.isArray(item.section)
+                ? item.section.includes(currentSection)
+                : item.section === currentSection;
 
 
-        /* =========================
-           CRÉATION CARTE
-           ========================= */
+            if (!matchesSection) {
+              return false;
+            }
+
+
+            if (
+              currentCategory !== null &&
+              !item.category.includes(currentCategory)
+            ) {
+              return false;
+            }
+
+
+            return true;
+
+          })
+          .sort((a, b) => {
+
+            /*
+              Quand aucun sous-filtre n'est sélectionné,
+              un article avec plusieurs catégories est classé
+              selon la première catégorie alphabétique visible.
+            */
+
+            const aCategory =
+              a.category
+                .map(category => categoryLabels[category] || category)
+                .sort((x, y) =>
+                  x.localeCompare(
+                    y,
+                    "fr",
+                    { sensitivity: "base" }
+                  )
+                )[0];
+
+
+            const bCategory =
+              b.category
+                .map(category => categoryLabels[category] || category)
+                .sort((x, y) =>
+                  x.localeCompare(
+                    y,
+                    "fr",
+                    { sensitivity: "base" }
+                  )
+                )[0];
+
+
+            if (currentCategory === null) {
+
+              const categoryComparison =
+                aCategory.localeCompare(
+                  bCategory,
+                  "fr",
+                  { sensitivity: "base" }
+                );
+
+
+              if (categoryComparison !== 0) {
+                return categoryComparison;
+              }
+
+            }
+
+
+            return a.description.localeCompare(
+              b.description,
+              "fr",
+              { sensitivity: "base" }
+            );
+
+          });
+
+
+      filteredItems.forEach(item => {
+
 
         const card =
           document.createElement("div");
