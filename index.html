@@ -510,7 +510,7 @@
         class="active"
         onclick="filterSection('maison')"
       >
-        Maison
+        Maison & objets
       </button>
 
 
@@ -1984,11 +1984,6 @@
       availableContainer.innerHTML = "";
 
 
-      /*
-        NOMS VISIBLES DES CATÉGORIES
-        Utilisés uniquement pour le tri alphabétique des articles.
-      */
-
       const categoryLabels = {
         "chambre": "Chambre",
         "cuisine": "Cuisine",
@@ -2004,12 +1999,6 @@
         "accessoires-bijoux": "Accessoires, bijoux"
       };
 
-
-      /*
-        1. On garde seulement les articles de l'onglet choisi.
-        2. Si une sous-catégorie est choisie, on la filtre.
-        3. On trie d'abord par catégorie, puis par description.
-      */
 
       const filteredItems =
         items
@@ -2038,12 +2027,6 @@
 
           })
           .sort((a, b) => {
-
-            /*
-              Quand aucun sous-filtre n'est sélectionné,
-              un article avec plusieurs catégories est classé
-              selon la première catégorie alphabétique visible.
-            */
 
             const aCategory =
               a.category
